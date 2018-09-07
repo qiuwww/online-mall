@@ -1,0 +1,146 @@
+<view class='coupon_tabbar'>
+  <view class='coupon_tabbar_item {{activeTab == 0 ? "active" : ""}}' bindtap='changetab' data-tab='0'>未使用
+    <span wx:if="{{couponList.length > 0}}">( {{couponList.length}} )</span>
+    <span wx:if="{{couponList.length == 0}}"></span>
+  </view>
+  <view class='coupon_tabbar_item {{activeTab == 1 ? "active" : ""}}' bindtap='changetab' data-tab='1'>已使用
+    <span wx:if="{{usedcouponList.length > 0}}">( {{usedcouponList.length}} )</span>
+    <span wx:if="{{usedcouponList.length == 0}}"></span>
+  </view>
+  <view class='coupon_tabbar_item {{activeTab == 2 ? "active" : ""}}' bindtap='changetab' data-tab='2'>已过期
+    <span wx:if="{{unablecouponList.length > 0}}">( {{unablecouponList.length}} )</span>
+    <span wx:if="{{unablecouponList.length == 0}}"></span>
+  </view>
+</view>
+<view class='coupon_List_area' wx:if="{{activeTab == 0}}">
+  <view wx:if="{{couponList.length == 0}}" class="List_noitem">您还没有优惠券！</view>
+  <view class='List_item' wx:for="{{couponList}}" wx:key="{{item.id}}" wx:if="{{couponList.length > 0}}">
+    <view class='List_item_left'>
+      <view class='List_item_left_price'>
+        <!-- <span class='List_item_left_pricetpi'>￥</span> -->
+        <!-- <span class='List_item_left_priceadr'>500</span> -->
+        {{item.value}}
+      </view>
+      <view>
+        <view class='List_item_left_limit'>{{item.limit}}</view>
+      </view>
+    </view>
+    <view class='List_item_right'>
+      <view class='List_item_right_tag' wx:if="{{item.ispoint == '0'}}">所有商品
+        <span wx:if="{{item.coupon_type == 0}}">减免</span>
+        <span wx:if="{{item.coupon_type == 1}}">折扣</span>券</view>
+      <view class='List_item_right_tag' wx:if="{{item.ispoint == '1'}}">指定商品
+        <span wx:if="{{item.coupon_type == 0}}">减免</span>
+        <span wx:if="{{item.coupon_type == 1}}">折扣</span>券</view>
+      <view class='List_item_right_tag' wx:if="{{item.ispoint == '2'}}">多种商品
+        <span wx:if="{{item.coupon_type == 0}}">减免</span>
+        <span wx:if="{{item.coupon_type == 1}}">折扣</span>券</view>
+
+      <view class='List_item_right_name'>{{item.name}}</view>
+      <view class='List_item_right_valiy' wx:if='{{item.localvalend !== "0"}}'>{{item.localvalend}}</view>
+      <view class='List_item_right_valiy' wx:if='{{item.localvalend == "0"}}'>已过期</view>
+      <view class='List_item_right_tip' wx:if="{{item.ispoint == '0'}}">（此券可以使用商店内所有商品）</view>
+      <view class='List_item_right_tip' wx:if="{{item.ispoint == '1'}}">（此券仅对应一种商品）</view>
+      <view class='List_item_right_tip' wx:if="{{item.ispoint == '2'}}">（此券对应{{item.goods.length}}商品）</view>
+      <view class='List_item_right_btn' wx:if="{{item.ispoint == '0' && item.abled == '1'}}" bindtap='tousecupzero'>立即使用</view>
+      <view class='List_item_right_btn_dis' wx:if="{{item.ispoint == '0' && item.abled == '0'}}">已过期</view>
+      <view class='List_item_right_btn' wx:if="{{item.ispoint == '1' && item.abled == '1'}}" bindtap='showModal' data-goods='{{item.goods}}'>点击查看</view>
+      <view class='List_item_right_btn_dis' wx:if="{{item.ispoint == '1' && item.abled == '0'}}">已过期</view>
+      <view class='List_item_right_btn' wx:if="{{item.ispoint == '2' && item.abled == '1'}}" bindtap='showModal' data-goods='{{item.goods}}'>点击查看</view>
+      <view class='List_item_right_btn_dis' wx:if="{{item.ispoint == '2' && item.abled == '0'}}">已过期</view>
+    </view>
+  </view>
+</view>
+<view class='coupon_List_area' wx:if="{{activeTab == 1}}">
+  <!-- <view class='userd_cup_List'> -->
+    <view wx:if="{{usedcouponList.length == 0}}" class="List_noitem">您还没有使用过优惠券！</view>
+    <view class='List_item ' wx:for="{{usedcouponList}}" wx:key="{{item.id}}" wx:if="{{usedcouponList.length > 0}}">
+      <view class='dis_item'>
+        <view class='List_item_left'>
+          <view class='List_item_left_price'>
+            <!-- <span class='List_item_left_pricetpi'>￥</span> -->
+            <!-- <span class='List_item_left_priceadr'>500</span> -->
+            {{item.value}}
+          </view>
+          <view>
+            <view class='List_item_left_limit'>{{item.limit}}</view>
+          </view>
+        </view>
+        <view class='List_item_right'>
+          <view class='List_item_right_tag' wx:if="{{item.ispoint == '0'}}">所有商品
+            <span wx:if="{{item.coupon_type == 0}}">减免</span>
+            <span wx:if="{{item.coupon_type == 1}}">折扣</span>券</view>
+          <view class='List_item_right_tag' wx:if="{{item.ispoint == '1'}}">指定商品
+            <span wx:if="{{item.coupon_type == 0}}">减免</span>
+            <span wx:if="{{item.coupon_type == 1}}">折扣</span>券</view>
+          <view class='List_item_right_tag' wx:if="{{item.ispoint == '2'}}">多种商品
+            <span wx:if="{{item.coupon_type == 0}}">减免</span>
+            <span wx:if="{{item.coupon_type == 1}}">折扣</span>券</view>
+          <view class='List_item_right_name'>{{item.name}}</view>
+          <view class='List_item_right_tip'>（此券已被使用）</view>
+          <view class='List_item_right_btn'>已使用</view>
+        </view>
+      </view>
+    </view>
+
+  <!-- </view> -->
+</view>
+<view class='coupon_List_area' wx:if="{{activeTab == 2}}">
+  <!-- <view class='unable_cup_List'> -->
+    <view wx:if="{{unablecouponList.length == 0}}" class="List_noitem">您还没有过期优惠券！</view>
+    <view class='List_item ' wx:for="{{unablecouponList}}" wx:key="{{item.id}}" wx:if="{{unablecouponList.length > 0}}">
+      <view class='dis_item'>
+        <view class='List_item_left'>
+          <view class='List_item_left_price'>
+            <!-- <span class='List_item_left_pricetpi'>￥</span> -->
+            <!-- <span class='List_item_left_priceadr'>500</span> -->
+            {{item.value}}
+          </view>
+          <view>
+            <view class='List_item_left_limit'>{{item.limit}}</view>
+          </view>
+        </view>
+        <view class='List_item_right'>
+          <view class='List_item_right_tag' wx:if="{{item.ispoint == '0'}}">所有商品
+            <span wx:if="{{item.coupon_type == 0}}">减免</span>
+            <span wx:if="{{item.coupon_type == 1}}">折扣</span>券</view>
+          <view class='List_item_right_tag' wx:if="{{item.ispoint == '1'}}">指定商品
+            <span wx:if="{{item.coupon_type == 0}}">减免</span>
+            <span wx:if="{{item.coupon_type == 1}}">折扣</span>券</view>
+          <view class='List_item_right_tag' wx:if="{{item.ispoint == '2'}}">多种商品
+            <span wx:if="{{item.coupon_type == 0}}">减免</span>
+            <span wx:if="{{item.coupon_type == 1}}">折扣</span>券</view>
+          <view class='List_item_right_name'>{{item.name}}</view>
+          <view class='List_item_right_tip'>（此券已过期）</view>
+          <view class='List_item_right_btn'>已过期</view>
+        </view>
+      </view>
+    </view>
+  <!-- </view> -->
+</view>
+<view class='coupon_center_area' bindtap='toCouponcenter'>
+  去领券中心
+</view>
+
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+  <!-- <view wx:for="{{pointgoods}}" class='point_goods_item'>
+
+  </view> -->
+  <scroll-view scroll-y style="height: 50vh;">
+    <view class="point_list" wx:for="{{pointgoods}}" wx:key="{{item.id}}">
+      <image class='coupon_list_img' src='{{item.list_pic_url}}'>
+      </image>
+      <view class='coupon_list_name'>
+        {{item.name}}
+      </view>
+      <view class='coupon_list_tag '> 指定商品 </view>
+      <view class='coupon_list_price '>￥{{item.retail_price}}</view>
+      <view class='coupon_list_userbtn ' bindtap='userCupGoods' data-goodsid='{{item.id}}'>立即使用</view>
+    </view>
+    <view style="height: 38rpx;">
+    </view>
+  </scroll-view>
+
+
+</view>

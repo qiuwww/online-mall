@@ -1,0 +1,42 @@
+<!--pages/ucenter/bankcard/bankcard.wxml-->
+<!-- <text>pages/ucenter/bankcard/bankcard.wxml</text> -->
+<view class='catch_top'>
+  <view class='catch_top_left'>绑定账户</view>
+  <view class='catch_top_right'>{{userInfo.nickname}}</view>
+</view>
+<view class='top_middle'>
+  <view class='top_middle_tip'>请填写绑定用户本人的银行卡信息</view>
+  <view class='top_middle_bank'>
+    <view class='top_middle_bank_code'>银行卡号</view>
+    <input class='top_middle_bank_number' type='number' placeholder='请输入银行卡号' bindinput='getUserIdCardNumber' placeholder-class='top_middle_bank_number_place'></input>
+  </view>
+  <view class='top_middle_tip'>{{cardName}} {{cardType}}</view>
+</view>
+<view class='middle_area'>
+  <view class='middle_area_item bottombord'>
+    <view class='middle_area_item_view '>姓名</view>
+    <input class='middle_area_item_input' placeholder='请填写开户行对应的真实姓名，否则会导致提现失败 ！' bindinput='getUserIdCardName' placeholder-class='top_middle_bank_number_place'></input>
+  </view>
+  <!-- <view class='middle_area_item bottombord'>
+    <view class='middle_area_item_view'>身份证号</view>
+    <input class='middle_area_item_input' placeholder='请输入身份证号码' bindinput='getUserIdCard' placeholder-class='top_middle_bank_number_place'></input>
+  </view> -->
+  <!-- <view class='middle_area_item'>
+    <view class='middle_area_item_view'>手机号</view>
+    <input class='middle_area_item_input' placeholder='请输入手机号码' bindinput='getUserIdCardPhoneNumber' placeholder-class='top_middle_bank_number_place'></input>
+  </view> -->
+  <view class='middle_area_item'>
+    <view class='middle_area_item_view'>开户行</view>
+    <view class="middle_area_item_input">
+      <picker bindchange="bindPickerChange" value="{{banklist_value}}" range="{{banklist}}">
+        <view class="picker">
+            <!-- {{banklist_value}}   -->
+            <view class='checkedbank'>{{banklist_value}}</view>
+        </view>
+      </picker>
+    </view>
+  </view>
+</view>
+<button class='bottom_btn' bindtap='submitInfos' disabled='{{bingbtnable}}'>绑定</button>
+<view class='tips'>注: 请务必核对您填写的银行卡号和开户行以及姓名</view>
+<view class='tips'>再注: 因信息校验失败而提现失败的情况平台概不负责</view>

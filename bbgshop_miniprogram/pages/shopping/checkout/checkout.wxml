@@ -1,0 +1,142 @@
+<view class="container">
+  <view class="address-box">
+    <view class="address-item" bindtap="selectAddress" wx:if="{{addressId != 0}}">
+      <view class="l">
+        <text class="name">{{checkedAddress.name}}</text>
+        <text class="default" wx:if="{{checkedAddress.is_default === 1}}">默认</text>
+      </view>
+      <view class="m">
+        <text class="mobile">{{checkedAddress.mobile}}</text>
+        <!-- <text class="mobile">123</text> -->
+        <text class="address">{{checkedAddress.full_region + checkedAddress.address}}</text>
+      </view>
+      <view class="r">
+        <image src="/static/images/address_right.png"></image>
+      </view>
+    </view>
+    <view class="address-item address-empty" bindtap="addAddress" wx:if="{{addressId == 0}}">
+      <view class="m" style='font-size:30rpx;'>
+        没有收货地址或没有选择收货地址，点击选择
+      </view>
+      <view class="r">
+        <image src="/static/images/address_right.png"></image>
+      </view>
+    </view>
+    <!-- <view class="address-item address-empty" bindtap="selectAddress" wx:if="{{addressInfo.length != 0}}">
+            <view class="m">
+               请选择收货地址
+            </view>
+            <view class="r">
+                <image src="/static/images/address_right.png"></image>
+            </view>
+        </view> -->
+  </view>
+  <view class="coupon-box">
+    <view class="coupon-item" bindtap="selectcoupon">
+      <view class="l" wx:if="{{couponId != 0 }}">
+        <text class="name">已选择优惠券</text>
+        <text class="txt">-￥{{couponPrice}}</text>
+      </view>
+      <view class="r" wx:if="{{couponId != 0 }}">
+        <image src="/static/images/address_right.png"></image>
+      </view>
+      <view class="l" wx:if="{{couponId == 0 }}">
+        <text class="name">请选择优惠券</text>
+        <text class="txt">{{couponList.length}}张</text>
+      </view>
+      <view class="r" wx:if="{{couponId == 0 }}">
+        <image src="/static/images/address_right.png"></image>
+      </view>
+    </view>
+  </view>
+  <view class='box_area' wx:if="{{is_Identity == 1}}">
+    <view class='box_area_item'>
+      <view class='box_area_item_left'>身份信息</view>
+      <view class='box_area_item_right'>
+        <input class='box_area_item_right_input' placeholder="请填写身份信息 ！" bindinput='IdentityInput' />
+      </view>
+    </view>
+    <view class='box_area_item_right_input_tip'>只有在您的订单中存在跨境商品的时候才需要您填写身份信息 </view>
+  </view>
+
+  <view class='box_area'>
+    <view class='box_area_item border_bottom'>
+      <view class='box_area_item_left'>商品合计</view>
+      <view class='box_area_item_right'>￥
+        <span class="big">{{goodsTotalPrice}}</span>
+      </view>
+    </view>
+    <view class='box_area_item border_bottom'>
+      <view class='box_area_item_left'>运费</view>
+      <view class='box_area_item_right'>￥
+        <span class="big">{{freightPrice}}</span>
+      </view>
+    </view>
+    <view class='box_area_item border_bottom'>
+      <view class='box_area_item_left'>优惠券</view>
+      <view class='box_area_item_right'>-￥
+        <span class="big">{{couponPrice}}</span>
+      </view>
+    </view>
+    <view class='box_area_item border_bottom'>
+      <view class='box_area_item_left'>优惠活动</view>
+      <view class='box_area_item_right red'>{{rules_value}}</view>
+    </view>
+    <view class='box_area_item border_bottom'>
+      <view class='box_area_item_left'>会员等级减免</view>
+      <view class='box_area_item_right blue'>{{userDiscount_Value}}</view>
+    </view>
+    <view class='box_area_item'>
+      <view class='box_area_item_left'>备注</view>
+      <view class='box_area_item_right'>
+        <input class='box_area_item_right_input' placeholder="如有备注请点击留言！" bindinput='freetext' />
+      </view>
+    </view>
+  </view>
+  <view class='res_goods_area'>
+    <view class='res_goods_area_item' wx:for="{{checkedGoodsList}}" wx:key="{{item.id}}">
+      <image class='res_goods_area_item_img' src="{{item.list_pic_url}}"></image>
+      <view class='res_goods_area_item_name'>{{item.goods_name}}</view>
+      <view class='res_goods_area_item_spec'>{{item.goods_specifition_name_value}}</view>
+      <view class='res_goods_area_item_price'>￥
+        <span class="big">{{item.retail_price}}</span>
+      </view>
+      <view class='res_goods_area_item_num'>x{{item.number}}</view>
+    </view>
+  </view>
+  <!-- <view class="goods-items">
+    <view class="item" wx:for="{{checkedGoodsList}}" wx:key="{{item.id}}">
+      <view class="img">
+        <image src="{{item.list_pic_url}}"></image>
+      </view>
+      <view class="info">
+        <view class="t">
+          <text class="name">{{item.goods_name}}</text>
+
+        </view>
+        <view class="m">{{item.goods_specifition_name_value}}</view>
+        <view class="b">￥{{item.retail_price}}</view>
+        <text class="number">x{{item.number}}</text>
+      </view>
+    </view>
+  </view> -->
+  <view class='goods_length' wx:if="{{checkedGoodsList.length !== 0}}">共{{checkedGoodsList.length}}件商品</view>
+  <view class='tip_area' wx:if="{{checkedGoodsList.length == 0}}">
+    <view class='tip'>因为订单已生成，所以此处没有显示商品</view>
+    <view class='tip'>购物车中此商品已删除</view>
+    <view class='tip'>请在订单界面重新发起付款或重新下单</view>
+    <view class='tip'>有问题请联系贝堡网络科技有限公司Bug反馈部</view>
+    <button class='backindex' bindtap="backindex">返回首页</button>
+  </view>
+  <!-- <view class='backindextip' bindtap="backindextip">back</view> -->
+  <view class='order_total_bar'>
+    <view class='price'>实付：￥
+      <span class="big">{{actualPrice}}</span>
+    </view>
+    <view class='acton' bindtap="submitOrder">付款</view>
+  </view>
+  <!-- <view class="order-total">
+        <view class="l">实付：￥{{actualPrice}}</view>
+        <view class="r" bindtap="submitOrder">去付款</view>
+    </view> -->
+</view>

@@ -1,0 +1,43 @@
+<!--pages/ucenter/distribution_catch/distribution_catch.wxml-->
+<!-- <text>pages/ucenter/distribution_catch/distribution_catch.wxml</text> -->
+<view class='catch_top'>
+  <view class='catch_top_left'>提现账户</view>
+  <view class='catch_top_right'>{{userInfo.nickname}}</view>
+</view>
+<view class='catch_middle'>
+  <view class='catch_middle_title'>提现金额</view>
+  <view class='catch_middle_price_area'>
+    <view class='catch_middle_price_area_mark'>￥</view>
+    <input type='digit' class='catch_middle_price_area_input' value='{{disvalue}}' bindinput='input_money'>
+    <!-- <input></input> -->
+    </input>
+  </view>
+</view>
+<view class='catch_middle_mid'>
+  <view class='catch_middle_mid_left'>可提现金额 {{cancatch_all}}</view>
+  <view class='catch_middle_mid_right' bindtap='allmoney'>全部提现</view>
+</view>
+<view class='catch_middle_catch_to'>
+  <view class='catch_middle_catch_to_left'>提现到</view>
+  <view class="catch_middle_catch_to_right" bindtap='showModal'>
+     <span>{{getcashtypevalue}}</span> 
+    <view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+    <view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+      <scroll-view scroll-y style='height:50vh'>
+        <view class='card_card' wx:if="{{cardlist.length !== 0}}" wx:for="{{cardlist}}" wx:key='{{item.id}}' data-item='{{item}}' bindtap='selectbankcard'>
+          <image class='card_card_img'></image>
+          <view class='card_card_name'>{{item.card_bank_name}}</view>
+          <view class='card_card_type'>{{item.card_bank_code}}</view>
+          <view class='card_card_code'>**** **** **** {{item.lastforth}} </view>
+        </view>
+        <view class='nobandcard' wx:if="{{cardlist.length == 0}}">您还没有添加银行卡，请在主页绑定银行卡 ！</view>
+      <view class='getcashwechat' bindtap='getcashwechat'>提现到微信零钱</view>
+        
+      </scroll-view>
+    </view>
+  </view>
+  <!-- <view class='catch_middle_catch_to_right'>提现到</view> -->
+</view>
+<button class='catch_sure' disabled='{{applybtndisable}}' bindtap='catch_apply'>提交提现申请</button>
+<view class='tips'>注：暂不支持提现到微信零钱，后续会开通。</view>
+<view class="tips">再注：提现到银行卡需要大概36小时内到账，请悉知。</view>

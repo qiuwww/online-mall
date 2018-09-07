@@ -1,0 +1,454 @@
+/* pages/Resagin_bargain/Resagin_bargain.wxss */
+page {
+  background: #fafafa;
+}
+.auth_btn {
+  position: fixed;
+  left: 0;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  z-index: 9999;
+  /* z-index: 99999999999999999999999999 */
+}
+.noListTip {
+  font-size: 24rpx;
+  color: #757575;
+  text-align: center;
+  padding-top: 38vh;
+}
+/* 以下为按钮的样式 */
+.userBargainList_btn_area_button.outtime {
+  background: #aaa ;
+}
+.userBargainList_btn_area_button.get {
+  background: #409EFF;
+}
+.userBargainList_btn_area_button.pay {
+  background: #4caf50;
+}
+.userBargainList_btn_area_button.fain {
+  background: #fff;
+  color: #757575;
+}
+.userBargainList_btn_area_time.contiune {
+  color: #ff5544; 
+}
+.userBargainList_btn_area_time.get {
+  color: #409EFF;
+}
+.userBargainList_btn_area_time.pay {
+  color: #4caf50;
+}
+.userBargainList_btn_area_time.outtime {
+  color: #757575;
+  /* border: 1px solid black; */
+  font-size: 26rpx; 
+  width: 30vw;
+}
+/* 以下为sku弹层样式 */
+.sku_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+.sku_box {
+  width: 100%;
+   /* overflow: hidden;  */
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  /* padding-top: 20rpx; */
+}
+.sku_box_top {
+  /* border: 1px solid #000; */
+  height: 200rpx;
+  margin: 20rpx 20rpx 20rpx 20rpx;
+  border-bottom: 1px #eee solid;
+}
+.sku_box_top_img {
+  position: absolute;
+  width: 250rpx;
+  left: 30rpx;
+  height: 250rpx;
+   margin-top: -100rpx; 
+   background: #fff;
+  /* border: 2px #fff solid; */
+  border-radius: 10rpx;
+  /* border:2px solid #fff; */
+  /* padding: 2px; */
+  /* box-shadow: darkgrey 0px 0px 0px 2px; */
+  /* margin-bottom: 20rpx; */
+}
+.sku_box_top_skuprice {
+  position: absolute;
+  left: 300rpx;
+  top: 30rpx;
+  font-size: 34rpx;
+  color: #E02E24;
+}
+.sku_box_top_skuvalue{
+  position: absolute;
+  left: 300rpx;
+  top: 90rpx;
+  font-size: 28rpx;
+  /* color: #E02E24; */
+}
+.sku_box_top_skurelprice {
+  font-size: 25rpx;
+  text-decoration:line-through;
+  color: #757575;
+}
+.sku_box_middle {
+  margin: 20rpx;
+  /* height: 500rpx; */
+}
+.sku_middle_spec {
+  /* border: 1px solid #000; */
+}
+.sku_middle_spec_name {
+  /* border: 1px solid #000; */
+  font-size: 28rpx;
+  height: 1.5rem;
+  line-height: 1.5rem;
+  /* border-bottom: 1px solid #eee; */
+}
+.sku_middle_spec_value {
+    display: inline-block;
+    height: 62rpx;
+    background: #f5f5f5;
+    border-radius: 15rpx;
+    padding: 0 35rpx;
+    line-height: 62rpx;
+    text-align: center;
+    margin-right: 25rpx;
+    margin-top: 1.5rpx;
+    margin-bottom: 16.5rpx;
+    /* border: 1px solid #333; */
+    font-size: 25rpx;
+    color: #333;
+}
+.sku_middle_spec_values {
+  border-bottom: 1px solid #eee;
+}
+.sku_middle_spec_value.disable{
+    border: 1px solid #ccc;
+    color: #ccc;
+}
+.sku_middle_spec_value.selected{
+  /* border: 1px solid #b4282d; */
+  background: #e02e24;
+  color: #f5f5f5;
+}
+.sureBtn {
+  background: #E02E24;
+  color: #fff;
+  border-radius: 0rpx;
+}
+/* 以下为我的砍价界面样式 */
+ .userBargainList_btn_area_time {
+   position: absolute;
+  /* left: 240rpx; */
+  /* bottom: 16rpx; */
+  left: 25rpx;
+  /* width: 160rpx; */
+  padding: 0 2rpx;
+  font-size: 30rpx;
+  height: 80rpx;
+  line-height: 80rpx;
+  font-weight: bold;
+  /* border: 1px solid black; */
+  /* background: #e02e24; */
+  /* color: #ff5544;  */
+ } 
+.userBargainList_btn_area_button {
+  position: absolute;
+  /* left: 240rpx; */
+  bottom: 16rpx;
+  right: 18rpx;
+  width: 160rpx;
+  padding: 0 2rpx;
+  font-size: 20rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  /* border: 1px solid black; */
+  background: #e02e24;
+  color: #fafafa; 
+}
+.userBargainList_area_cut .price {
+  font-weight: bold;
+  font-size: 36rpx;
+}
+.userBargainList_area_cut .lest_price {
+  font-weight: bold;
+  font-size: 36rpx;
+}
+.userBargainList_area_cut {
+  position: absolute;
+  left: 240rpx; 
+  /* bottom: 6rpx; */
+  /* right: 8rpx; */
+  top: 190rpx;
+  /* width: 160rpx; */
+  padding: 0 5rpx;
+  font-size: 24rpx;
+  height: 32rpx;
+  color: #e02e24;
+  line-height: 32rpx;
+  /* border: 1px solid black; */
+}
+.userBargainList_area_goods_sn {
+  position: absolute;
+  left: 240rpx; 
+  top: 152rpx;
+  padding: 0 8rpx;
+  font-size: 20rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  color: #757575;
+}
+.userBargainList_area_sku_value {
+  position: absolute;
+  left: 240rpx; 
+  top: 115rpx;
+  padding: 0 8rpx;
+  font-size: 20rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  color: #757575;
+  /* border: 1px solid black; */
+}
+.userBargainList_area_name {
+  position: absolute;
+  left: 240rpx;
+  top: 12rpx;
+  right: 12rpx;
+   /* border: 1px solid black;   */
+  font-size: 32rpx;
+  height: 88rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+.userBargainList_area_img {
+  position: absolute;
+  /* background: #eee; */
+  /* border: 1px solid black;  */
+  width: 230rpx;
+  height: 226rpx;
+  left: 4rpx;
+  top: 4rpx;
+}
+.userBargainList_info_area {
+  /* border: 1px solid #321459; */
+  height: 230rpx;
+}
+.userBargainList_btn_area {
+   /* border: 1px solid #757575;  */
+  border-top: 1px solid #eee;
+  height: 80rpx;
+  width: calc(100vw - 40rpx);
+  margin: 0 20rpx;
+
+}
+.userBargainList_area {
+  position: relative;
+  border-radius: 5rpx;
+  border: 1px solid #fafafa; 
+  margin-top: 10rpx;
+  height: 318rpx;
+  background: #fff;
+}
+/* 以下为样式骨架 */
+.Skeleton_bargainList_area_price {
+  position: absolute;
+  left: 240rpx; 
+  /* bottom: 6rpx; */
+  /* right: 8rpx; */
+  bottom: 15rpx;
+  width: 300rpx; 
+  padding: 0 5rpx;
+  background: #eee;
+  font-size: 20rpx;
+  height: 32rpx;
+  color: #e02e24;
+  line-height: 32rpx;
+  /* border: 1px solid black; */
+}
+.Skeleton_bargainList_area_purchased {
+  position: absolute;
+  left: 240rpx; 
+  /* bottom: 6rpx; */
+  /* right: 8rpx; */
+  bottom: 52rpx;
+  width: 200rpx; 
+  padding: 0 8rpx;
+  background: #eee;
+  font-size: 18rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  /* border: 1px solid black; */
+}
+.Skeleton_bargainList_area_btn {
+  position: absolute;
+  /* left: 240rpx; */
+  bottom: 12rpx;
+  right: 12rpx;
+  width: 160rpx;
+  background: #eee;
+  padding: 0 2rpx;
+  font-size: 20rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  border-radius: 6rpx;
+  /* border: 1px solid #eee; */
+  /* border: 1px solid black; */
+  /* background: #e02e24; */
+  /* color: #fafafa;  */
+}
+.Skeleton_bargainList_area_name {
+  position: absolute;
+  left: 240rpx;
+  top: 6rpx;
+  right: 12rpx;
+   /* border: 1px solid black;   */
+  font-size: 32rpx;
+  background: #eee;
+  height: 88rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+.Skeleton_bargainList_area_img {
+  position: absolute;
+  background: #eee;
+  /* border: 1px solid black;  */
+  width: 230rpx;
+  height: 226rpx;
+  left: 4rpx;
+  top: 4rpx;
+}
+.Skeleton_bargainList_area {
+  position: relative;
+  border-radius: 5rpx;
+  border: 1px solid #fafafa; 
+  margin-top: 20rpx;
+  height: 238rpx;
+  background: #fff;
+}
+/* 以下为砍价商品界面样式 */
+.bargainList_area_price .price {
+  font-weight: bold;
+  font-size: 30rpx;
+}
+.bargainList_area_price {
+  position: absolute;
+  left: 240rpx; 
+  /* bottom: 6rpx; */
+  /* right: 8rpx; */
+  bottom: 15rpx;
+  /* width: 160rpx; */
+  padding: 0 5rpx;
+  font-size: 20rpx;
+  height: 32rpx;
+  color: #e02e24;
+  line-height: 32rpx;
+  /* border: 1px solid black; */
+}
+.bargainList_area_purchased {
+  position: absolute;
+  left: 240rpx; 
+  /* bottom: 6rpx; */
+  /* right: 8rpx; */
+  bottom: 52rpx;
+  /* width: 160rpx; */
+  padding: 0 8rpx;
+  font-size: 18rpx;
+  height: 24rpx;
+  line-height: 24rpx;
+  /* border: 1px solid black; */
+}
+.bargainList_area_btn {
+  position: absolute;
+  /* left: 240rpx; */
+  bottom: 12rpx;
+  right: 12rpx;
+  width: 160rpx;
+  padding: 0 2rpx;
+  font-size: 20rpx;
+  height: 52rpx;
+  line-height: 52rpx;
+  /* border: 1px solid black; */
+  background: #e02e24;
+  color: #fafafa; 
+}
+.bargainList_area_name {
+  position: absolute;
+  left: 240rpx;
+  top: 12rpx;
+  right: 12rpx;
+  /* border: 1px solid black;  */
+  font-size: 32rpx;
+  height: 88rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+.bargainList_area_img {
+  position: absolute;
+  /* border: 1px solid black;  */
+  width: 230rpx;
+  height: 230rpx;
+  left: 4rpx;
+  top: 4rpx;
+}
+.bargainList_area {
+  position: relative;
+  border-radius: 5rpx;
+  border: 1px solid #fafafa; 
+  margin-top: 10rpx;
+  height: 238rpx;
+  background: #fff;
+}
+
+/* 以下为底部tabbar样式 */
+.Bar_page_tab {
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  height: 100rpx;
+  /* border: 1px solid black; */
+  background: #fff;
+}
+.Bar_page_tab_item {
+  /* border: 1px solid black; */
+  width: 50%;
+  margin: 20rpx 0 ;
+  height: 60rpx;
+  color: #444;
+  line-height: 60rpx;
+  text-align: center;
+  float: left;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.active {
+  color: #ff4455;
+}

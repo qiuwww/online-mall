@@ -1,0 +1,87 @@
+<!--pages/Resagin_bargain/Resagin_bargain.wxml-->
+<button wx:if="{{!is_userInfo}}" class='auth_btn' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button>
+<view class='Bar_all_page'>
+  <view class='noListTip' wx:if="{{activeTab == 0 && bargainList.length == 0 && !showSkeleton}}">还没有发布砍价商品 ！</view>
+  <view class='noListTip' wx:if="{{activeTab == 1 && userBargainList.length == 0 && !showSkeleton}}">您还没有参与砍价商品 ！</view>
+  <view wx:if="{{showSkeleton}}">
+    <view class='Skeleton_bargainList_area' wx:for='{{4}}' wx:key="{{item.id}}">
+      <view class='Skeleton_bargainList_area_img'></view>
+      <view class='Skeleton_bargainList_area_name'></view>
+      <view class='Skeleton_bargainList_area_purchased'></view>
+      <view class='Skeleton_bargainList_area_price'></view>
+      <view class='Skeleton_bargainList_area_btn'></view>
+    </view>
+  </view>
+  <scroll-view wx:if="{{activeTab == 0 && bargainList.length > 0}}" scroll-y style='height:calc(100vh - 100rpx)'>
+    <view class='bargainList_area' wx:for="{{bargainList}}" wx:key="{{item.id}}">
+      <image class='bargainList_area_img' src='{{item.goods.list_pic_url}}'></image>
+      <view class='bargainList_area_name'>{{item.goods_name}}</view>
+      <view class='bargainList_area_purchased'>{{item.purchased_num}} 人已 {{item.lowest_price}} 拿</view>
+      <view class='bargainList_area_price'>原价 ￥
+        <span class="price">{{item.retail_price}}</span>
+      </view>
+      <button class='bargainList_area_btn' bindtap='launchBargain' data-bargainId='{{item.id}}' data-goodsId='{{item.goodsid}}'>砍价 {{item.lowest_price}} 元得</button>
+    </view>
+  </scroll-view>
+  <scroll-view wx:if="{{activeTab == 1 && userBargainList.length > 0}}" scroll-y style='height:calc(100vh - 100rpx)'>
+    <view class='userBargainList_area' wx:for="{{userBargainList}}" wx:key="{{item.id}}">
+      <view class='userBargainList_info_area'>
+        <image class='userBargainList_area_img' src='{{item.goods_pic}}'></image>
+        <view class='userBargainList_area_name'>{{item.goods_name}}</view>
+        <view class='userBargainList_area_sku_value'>款式: {{item.goods_sku_value}}</view>
+        <view class='userBargainList_area_goods_sn'>{{item.goods_sn}}</view>
+        <view class='userBargainList_area_cut'>已砍 ￥
+          <span class="price">{{item.have_cut_price}}</span>，还剩 ￥
+          <span class="lest_price">{{item.have_cut_lest}}</span>
+        </view>
+      </view>
+      <!-- <view class='userBargainList_time_area'>2485789546</view> -->
+      <view class='userBargainList_btn_area'>
+      <view class='userBargainList_btn_area_time'>
+        <span wx:if="{{item.iscut == 0 && item.is_outtime == 0}}" class="userBargainList_btn_area_time contiune">  {{item.listtime}}  </span>
+        <span wx:if="{{item.iscut == 1 && item.is_outtime == 0}}" class="userBargainList_btn_area_time get">  {{item.listtime}}  </span>
+        <span wx:if="{{item.iscut == 2 && item.is_outtime == 0}}" class="userBargainList_btn_area_time pay">  {{item.listtime}}  </span>
+        <span wx:if="{{item.is_outtime == 1}}" class="userBargainList_btn_area_time outtime">  砍价失败  </span>
+      </view>
+      <button wx:if="{{item.iscut == 3 && item.is_outtime == 0}}" class='userBargainList_btn_area_button fain' data-barid='{{item.id}}'>砍价已完成</button>
+      <button wx:if="{{item.iscut == 2 && item.is_outtime == 0}}" class='userBargainList_btn_area_button pay' bindtap='payCut_Btn' data-barid='{{item.id}}'>点击付款</button>
+      <button wx:if="{{item.iscut == 1 && item.is_outtime == 0}}" class='userBargainList_btn_area_button get' bindtap='continueCut_Btn' data-barid='{{item.id}}'>点击领取</button>
+        <button wx:if="{{item.iscut == 0 && item.is_outtime == 0}}" class='userBargainList_btn_area_button' bindtap='continueCut_Btn' data-barid='{{item.id}}'>继续砍价</button>
+        <button wx:if="{{item.is_outtime == 1}}" class='userBargainList_btn_area_button outtime' bindtap='' data-barid='{{item.id}}'>已过期</button>
+      </view>
+    </view>
+  </scroll-view>
+  <view class='Bar_page_tab'>
+    <view class='Bar_page_tab_item {{activeTab == 0 ? "active" : ""}}' style='border-right:1px solid #eee' bindtap='changeActiveTab' data-index='0'>砍价商品</view>
+    <view class='Bar_page_tab_item {{activeTab == 1 ? "active" : ""}}' bindtap='changeActiveTab' data-index='1'>我的砍价</view>
+  </view>
+</view>
+
+<!--以下为商品SKU弹层区域  -->
+<view class="sku_screen" bindtap="hideSkuModal" wx:if="{{showSkuModalStatus}}"></view>
+<view animation="{{animationSkuData}}" class="sku_box" wx:if="{{showSkuModalStatus}}">
+  <view class='sku_box_top'>
+    <image class='sku_box_top_img' src='{{thisbargoods.goods.list_pic_url}}'></image>
+    <view class='sku_box_top_skuprice'>
+      ￥{{thisbargoods.lowest_price}}元
+      <span class='sku_box_top_skurelprice'>￥{{checkgoods.retail_price}} </span>
+    </view>
+    <view class='sku_box_top_skuvalue' wx:if="{{productList.length > 0}}">
+      已选择：{{checkedSpecText}}
+    </view>
+  </view>
+  <view class='sku_box_middle'>
+    <view class="sku_middle_spec">
+      <view class="spec-item" wx:for="{{specificationList}}" wx:key="{{item.specification_id}}">
+        <view class="sku_middle_spec_name">{{item.name}}</view>
+        <view class="sku_middle_spec_values">
+          <view class="sku_middle_spec_value {{vitem.checked ? 'selected' : ''}}" bindtap="clickSkuValue" wx:for="{{item.valueList}}" wx:for-item="vitem" wx:key="{{vitem.id}}" data-value-id="{{vitem.id}}" data-name-id="{{vitem.specification_id}}">{{vitem.value}}</view>
+        </view>
+      </view>
+    </view>
+  </view>
+  <view>
+  <view style='margin:0 auto;margin-bottom:12rpx' class='corner_btn' bindtap='skuSure'>确定</view>
+  </view>
+</view>
+<!-- </view> -->

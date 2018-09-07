@@ -1,0 +1,7 @@
+/* pages/ucenter/customer/customer.wxss */
+.tips {
+  text-align: center;
+  margin-top: 38vh;
+  font-size: 24rpx;
+  color: #757575;
+}

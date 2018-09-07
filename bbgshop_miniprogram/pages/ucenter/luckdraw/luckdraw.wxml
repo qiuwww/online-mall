@@ -1,0 +1,18 @@
+<!--pages/ucenter/luckdraw/luckdraw.wxml-->
+<!-- <text>pages/ucenter/luckdraw/luckdraw.wxml</text> -->
+<scroll-view scroll-y class='luck_goods_box' wx:for="{{luckDrawList}}" bindtap='toLuckDrawDetailPage' data-id='{{item.id}}' wx:if="{{luckDrawList.length > 0}}">
+  <image class='luck_goods_box_img' src='{{item.luck_goods_pic}}'></image>
+  <view class='luck_goods_box_name'>奖品： {{item.luck_goods_name}}</view>
+  <!-- <view class='luck_goods_box_desp'>{{item.luck_people_num}}</view> -->
+  <view class='luck_goods_have_join_people' wx:if="{{item.differpeople > 0 && item.is_open == 0}}">还差 <span class="big">{{item.differpeople}}</span> 人开奖， <span class="big">{{item.luck_goods_num}}</span> 件奖品</view>
+  <view class='luck_goods_have_join_people' wx:if="{{item.differpeople <= 0 && item.is_open == 0}}">等待开奖</view>
+  <view class='luck_goods_have_join_people' wx:if="{{item.differpeople <= 0 && item.is_open == 01}}">已开奖</view>
+  <view class='luck_goods_price'>￥ <span class="big">{{item.luck_goods_price}}</span></view>
+  <view class='luck_goods_box_time' wx:if="{{item.is_out_time == 0 && item.is_open == 0}}">{{item.locallimit_time}} 截止</view>
+  <view class='luck_goods_box_time' wx:if="{{item.is_out_time == 1 && item.is_open == 0}}">{{item.localopen_time}} 开奖</view>
+  <view class='luck_goods_box_time' wx:if="{{item.is_out_time == 1 && item.is_open == 1}}">中奖用户已产生，奖品已发放 </view>
+  <button class='luck_goods_box_btn join_btn' wx:if="{{item.is_out_time == 0 && item.is_open == 0}}">立即参与</button>
+  <button class='luck_goods_box_btn see_btn' wx:if="{{item.is_out_time == 1 && item.is_open == 0}}">查看抽奖</button>
+  <button class='luck_goods_box_btn after_btn' wx:if="{{item.is_out_time == 1 && item.is_open == 1}}">查看抽奖</button>
+</scroll-view>
+<view wx:if="{{luckDrawList.length == 0}}" class='no_luck_draw'>还没有发布抽奖 ！</view>

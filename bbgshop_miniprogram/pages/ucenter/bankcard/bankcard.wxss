@@ -1,0 +1,190 @@
+/* pages/ucenter/bankcard/bankcard.wxss */
+page {
+  background-color: #fafafa;
+}
+.tips {
+  color: #757575;
+  font-size: 22rpx;
+  text-align: center;
+  margin-bottom: 5rpx;
+}
+.catch_top {
+  /* margin-top: 8rpx; */
+  border-top: 1px solid #f4f4f4; 
+  height: 78rpx;
+  line-height: 78rpx;
+  margin-bottom: 15rpx;
+  background: #fff;
+}
+.catch_top_left {
+  float: left;
+  /* border: 1px solid black; */
+  height: 78rpx;
+  font-size: 28rpx;
+  line-height: 78rpx;
+  padding:0 27rpx;
+  color: #8a8a8a;
+  font-weight: bold;
+}
+.catch_top_right {
+  float: right;
+  /* border: 1px solid black; */
+  height: 78rpx;
+  font-size: 30rpx;
+  color: #e53935;
+  line-height: 78rpx;
+  padding:0 27rpx;
+  font-weight: bold;
+}
+.top_middle {
+   /* border: 1px solid black;  */
+}
+.top_middle_tip {
+  /* border: 1px solid black; */
+  padding: 10rpx 27rpx;
+  color: #757575;
+  font-size: 24rpx;
+}
+.top_middle_bank {
+   /* border: 1px solid black;  */
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  /* height: 86rpx; */
+  padding:18rpx 7rpx;
+  background: #fff;
+}
+.top_middle_bank_code {
+  /* border: 1px solid black; */
+  font-size: 32rpx;
+  /* font-weight: bold; */
+  width: 22%;
+  height: 1.45rem;
+  line-height: 1.45rem;
+  text-align: center;
+  float: left;
+}
+.top_middle_bank_number_place {
+  font-size: 22rpx;
+  font-weight: normal;
+}
+.top_middle_bank_number {
+  /* border: 1px solid black; */
+  font-size: 28rpx;
+  padding:0 5rpx;
+  /* font-weight: bold; */
+  text-align: left;
+  /* width: 22%; */
+  /* height: 42rpx !important; */
+  /* min-height: 42rpx !important; */
+  /* float: left; */
+}
+.middle_area {
+  /* border: 1px solid black; */
+  border-top: 1px solid #eee;
+  border-bottom: 1px solid #eee;
+  margin-top: 108rpx;
+  background: #fff;
+
+}
+.bottombord {
+  border-bottom: 1px solid #f4f4f4;
+}
+.middle_area_item {
+   /* border: 1px solid black;  */
+   position: relative;
+   height: calc(1.45rem + 40rpx); 
+  padding:20rpx 27rpx;
+}
+.middle_area_item_view {
+  position: absolute;
+   /* border: 1px solid black;  */
+  font-size: 32rpx;
+  /* font-weight: bold; */
+  width: 22%;
+  height: 1.45rem;
+  line-height: 1.45rem;
+  text-align: left;
+  float: left;
+}
+.middle_area_item_input {
+  position: absolute;
+  right: 27rpx;
+  font-size: 28rpx;
+  padding:0 5rpx;
+  min-width: 80%;
+   /* border: 1px solid black;  */
+  /* font-weight: bold; */
+  text-align: right;
+  height: 1.4rem;
+  /* width: 50%; */
+  /* float: right; */
+  
+}
+.bottom_btn {
+  width: 94vw;
+  margin: 38rpx auto;
+  background: #2196f3;
+  color: #f4f4f4;
+}
+.checkedbank {
+  color: #757575;
+  line-height: 1.4rem;
+  font-size: 26rpx;
+}
+/* .container {
+  padding: 0rpx;
+}
+
+.enroll-item {
+  display: flex;
+  flex-direction: row;
+  background-color: white;
+  width: 750rpx;
+  height: 80rpx;
+  flex-wrap: nowrap;
+  align-items: center;
+}
+
+.item-title {
+  font-size: 30rpx;
+  color: #8a8a8a;
+  white-space: nowrap;
+  margin-left: 24rpx;
+}
+
+.item-xing {
+  margin-left: 2rpx;
+  color: #fc6262;
+}
+
+.item-content {
+  font-size: 28rpx;
+  color: #8a8a8a;
+  flex: 1;
+  text-align: right;
+  padding-right: 24rpx;
+}
+.withdraw-note {
+  font-size: 30rpx;
+  margin-left: 20rpx;
+  margin-top: 20rpx;
+  margin-bottom: 20rpx;
+}
+.bank-reminder {
+  font-size: 28rpx;
+  margin-left: 20rpx;
+  color: #8a8a8a;
+  margin-top: 10rpx;
+  margin-bottom: 10rpx;
+}
+.sign-up {
+  font-size: 30rpx;
+  height: 96rpx;
+  display: flex;
+  margin-top: 24rpx;
+  justify-content: center;
+  align-items: center;
+  background-color: #3dc2ed;
+  width: 100%;
+  color: white;
+} */

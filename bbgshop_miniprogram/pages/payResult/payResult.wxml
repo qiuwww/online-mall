@@ -1,0 +1,26 @@
+<view class="container">
+  <view class="pay-result">
+    <view class="success" wx:if="{{paystatues == 'true'}}">
+      <view class="msg">付款成功</view>
+      <view class="tips">
+        <view class="p">您已成功付款</view>
+        <br />
+      </view>
+      <view class="btns">
+        <view class="btn" bindtap='seeorder'>查看订单</view>
+        <view class="btn" bindtap='content'>继续逛</view>
+      </view>
+    </view>
+    <view class="error" wx:if="{{paystatues != 'true'}}">
+      <view class="msg">付款失败</view>
+      <view class="tips">
+        <view class="p">请在 <text class="time">尽快</text> 完成付款</view>
+        <view class="p">否则订单将会被系统取消</view>
+      </view>
+      <view class="btns">
+        <view class="btn" bindtap='seeorder' >查看订单</view>
+        <view class="btn" bindtap='payOrder'>重新付款</view>
+      </view>
+    </view>
+  </view>
+</view>

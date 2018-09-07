@@ -1,0 +1,9 @@
+<!--pages/ucenter/bingbankcard/bingbankcard.wxml-->
+<view class='card_card' wx:if="{{cardlist.length !== 0}}" wx:for="{{cardlist}}" wx:key='{{item.id}}' bindlongtap='delbankcard' data-id='{{item.id}}'>
+  <image class='card_card_img'></image>
+  <view class='card_card_name'>{{item.card_bank_name}}</view>
+  <view class='card_card_type'>{{item.card_bank_code}}</view> 
+  <view class='card_card_code'>**** **** **** {{item.lastforth}} </view>
+</view>
+<view class='nobandcard' wx:if="{{cardlist.length == 0}}">您还没有添加银行卡，这将会对分销佣金提现产生影响 ！</view>
+<view class='card_add_card' bindtap='toaddcardpage'> 添加银行卡 </view>

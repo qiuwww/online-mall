@@ -1,0 +1,116 @@
+page{
+    background: #f4f4f4;
+    min-height: 100%;
+}
+.collect_area {
+  position: relative;
+  height: 178rpx;
+  /* border: 1px solid black; */
+  width: 96vw;
+  margin: 8rpx auto;
+  background: #fff;
+  border-radius: 8rpx;
+}
+.collect_area_img {
+  position: absolute;
+  width: 160rpx;
+  height: 160rpx;
+  top: 10rpx;
+  left: 10rpx;
+  /* border: 1px solid black; */
+}
+.collect_area_name {
+  position: absolute;
+  /* width: 160rpx; */
+  /* height: 160rpx; */
+  top: 10rpx;
+  left: 180rpx;
+  right: 10rpx;
+  /* border: 1px solid black; */
+  font-size: 30rpx;
+  line-height: 34rpx;
+  height: 70rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+.collect_area_desc {
+    position: absolute;
+  /* width: 160rpx; */
+  /* height: 160rpx; */
+  top: 82rpx;
+  left: 180rpx;
+  right: 10rpx;
+  /* border: 1px solid black; */
+  color: #757575;
+  font-size: 24rpx;
+  line-height: 28rpx;
+  height: 56rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+.collect_area_price {
+  position: absolute;
+  /* width: 160rpx; */
+  /* height: 160rpx; */
+  right: 10rpx;
+  /* left: 180rpx; */
+  bottom: 5rpx;
+  /* border: 1px solid black; */
+  color: #757575;
+  font-size: 24rpx;
+  /* line-height: 28rpx; */
+  /* height: 56rpx; */
+}
+.collect_area_price .big {
+  color: #ff5566;
+  font-size: 33rpx;
+  font-weight: bold;
+}
+.container{
+    background: #f4f4f4;
+    min-height: 100%;
+}
+.tip {
+  text-align: center;
+  font-size: 22rpx;
+  color: #757575;
+  margin-top: 34vh;
+}
+.footprint{
+   height: auto;
+  overflow: hidden;
+  width: 100%;
+  border-top: 1px solid #e1e1e1;
+}
+
+.day-item{
+  height: auto;
+  overflow: hidden;
+  width: 100%;
+  margin-bottom: 20rpx;
+}
+
+.day-hd{
+  height: 94rpx;
+  width: 100%;
+  line-height: 94rpx;
+  background: #fff;
+  padding-left: 30rpx;
+  color: #333;
+  font-size: 28rpx;
+}
+
+.day-list{
+  width: 100%;
+  height: auto;
+  overflow: hidden;
+  /* background: #fff; */
+  /* padding-left: 30rpx; */
+  border-top: 1px solid #e1e1e1;
+}

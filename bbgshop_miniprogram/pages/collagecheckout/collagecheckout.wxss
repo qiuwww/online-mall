@@ -1,0 +1,312 @@
+/* pages/shopping/collagecheckout/collagecheckout.wxss */
+.address-box{
+    width: 100%;
+    height: 166.55rpx;
+    background: url('http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/address-bg-bd30f2bfeb.png') 0 0 repeat-x;
+    background-size: 62.5rpx 10.5rpx;
+    margin-bottom: 20rpx;
+    padding-top: 10.5rpx;
+    border-bottom: 1px solid #f1f1f1;
+}
+.tip {
+  /* margin-top: -20rpx; */
+  font-size: 12px;
+  padding: 5rpx;
+  text-align: center;
+}
+.address-item{
+    display: flex;
+    font-size: 28rpx;
+    height: 155.55rpx;
+    background: #fff;
+    padding: 41.6rpx 0 41.6rpx 31.25rpx;
+}
+
+.address-item.address-empty{
+  line-height: 75rpx;
+  text-align: center;
+}
+
+.address-box .l{
+    width: 22.5%; 
+    height: 100%;
+}
+
+.address-box .l .name{
+    margin-left: 6.25rpx;
+    margin-top: -7.25rpx;
+    display: block;
+    width: 125rpx;
+    height: 43rpx;
+    line-height: 43rpx;
+    font-size: 30rpx;
+    color: #333;
+    margin-bottom: 5rpx;
+
+}
+
+.address-box .l .default{
+    margin-left: 6.25rpx;
+    display: block;
+    width: 62rpx;
+    height: 33rpx;
+    border-radius: 5rpx;
+    border: 1px solid #b4282d;
+    font-size: 20.5rpx;
+    text-align: center;
+    line-height: 29rpx;
+    color: #b4282d;
+}
+
+.address-box .m{
+    flex: 1;
+    height: 72.25rpx;
+    color: #999;
+}
+
+.address-box .mobile{
+    display: block;
+    height: 29rpx;
+    line-height: 29rpx;
+    margin-bottom: 6.25rpx;
+    font-size: 30rpx;
+    color:#333;
+}
+
+.address-box .address{
+    display: block;
+    height: 37.5rpx;
+    line-height: 37.5rpx;
+    font-size: 25rpx;
+    color:#666;
+}
+
+.address-box .r{
+    width: 77rpx;
+    height: 77rpx;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.address-box .r image{
+    width: 52.078rpx;
+    height: 52.078rpx;
+}
+
+
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.5;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+.commodity_attr_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: rgba(0, 0, 0, 0);
+  /* padding-top: 20rpx; */
+}
+.address_box{
+    width: 100%;
+    max-height: 80vh;
+    /* height: 166.55rpx; */
+    /* background: url('http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/address-bg-bd30f2bfeb.png') 0 0 repeat-x; */
+    background-size: 62.5rpx 10.5rpx;
+    /* margin-bottom: 20rpx; */
+    /* padding-top: 10.5rpx; */
+}
+.address_box_item {
+  /* display: flex; */
+  position: relative;
+  height: 156rpx;
+  background: #fff;
+  padding: 42rpx 0 42rpx 31.25rpx;
+}
+.address_item_name {
+  position: absolute;
+  /* border:1px solid #000; */
+  max-width: 18vw;
+  height: 72rpx;
+  top: 42rpx;
+  line-height: 72rpx;
+  font-size: 30rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 1;
+  -webkit-box-orient: vertical;
+}
+.address_item_phone {
+  /* border:1px solid #000; */
+  position: absolute;
+  left: 24vw;
+  top: 42rpx;
+  /* max-width: 30vw; */
+  height: 36rpx;
+  line-height: 36rpx;
+  font-size: 26rpx;
+}
+.address_item_address {
+  /* border:1px solid #000; */
+  position: absolute;
+  left: 24vw;
+  top: 80rpx;
+  max-width: 60vw;
+  /* max-width: 30vw; */
+  height: 36rpx;
+  line-height: 36rpx;
+  max-height: 72rpx;
+  font-size: 26rpx;
+}
+.address_item_axs {
+  position: absolute;
+  /* border:1px solid #000; */
+  width: 48rpx;
+  top: 60rpx;
+  height: 48rpx;
+  right: 42rpx;
+  line-height: 72rpx;
+  font-size: 30rpx;
+  
+}
+.address_box_noitem {
+   /* display: flex; */
+  position: relative;
+  height: 156rpx;
+  line-height: 156rpx;
+  font-size: 26rpx;
+  color: #757575;
+  background: #fff;
+  text-align: center;
+  /* padding: 42rpx 0 42rpx 31.25rpx; */
+}
+.address_box_noitemasx {
+  width: 100%;
+  height: 56rpx;
+  line-height: 56rpx;
+  text-align: center;
+  font-size: 24rpx;
+  color: #757575;
+  background: #fff;
+
+}
+.goods_area {
+  width: 98vw;
+  position: relative;
+  height: 148rpx;
+  /* padding: 3vw; */
+  border: 1px solid #f4f4f4;
+  margin: 0 auto;
+}
+.goods_img {
+  position: absolute;
+  width: 138rpx;
+  height: 138rpx;
+  top: 5rpx;
+  left: 5rpx;
+}
+.goods_name {
+  position: absolute;
+  /* border: 1px solid black; */
+  top: 5rpx;
+  font-size: 28rpx;
+  right: 5rpx;
+  line-height: 32rpx;
+  height: 75rpx;
+  left: 148rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+}
+.goods_skuvalue {
+  position: absolute;
+  /* border: 1px solid black; */
+  bottom: 5rpx;
+  font-size: 18rpx;
+  color: #757575;
+  /* right: 5rpx; */
+  /* line-height: 32rpx; */
+  /* height: 75rpx; */
+  left: 148rpx;
+}
+.goods_price {
+  position: absolute;
+  /* border: 1px solid black; */
+  bottom: 5rpx;
+  font-size: 19rpx;
+  color: #757575;
+  /* right: 5rpx; */
+  /* line-height: 32rpx; */
+  /* height: 75rpx; */
+  right: 5rpx;
+}
+.collage_price_area {
+  /* border: 1px solid #000; */
+  width: 98vw;
+  margin: 15rpx auto;
+  height: 68rpx;
+  border-bottom: 1px solid #f4f4f4;
+  
+}
+.collage_price_value {
+  line-height: 68rpx;
+  height: 68rpx;
+  float: left;
+  padding-left: 10rpx;
+  font-size: 25rpx;
+}
+.collage_price_price {
+  float: right;
+  line-height: 68rpx;
+  height: 68rpx;
+  font-size: 24rpx;
+  padding-right: 10rpx;
+}
+.collage_bottom {
+  /* border: 1px solid #000; */
+  position: fixed;
+  left: 0;
+  bottom: 0;
+  width: 100vw;
+  height: 78rpx;
+  /* padding: 20rpx; */
+}
+.collage_bottom_canel {
+  /* border: 1px solid #000; */
+  float: left;
+  width: 50vw;
+  text-align: center;
+  height: 78rpx;
+  line-height: 78rpx;
+  font-size: 24rpx;
+  color: #757575;
+}
+.collage_bottom_sure {
+  float: left;
+  height: 78rpx;
+  line-height: 78rpx;
+  width: 50vw;
+  text-align: center;
+  font-size: 24rpx;
+  color: #fff;
+  background: #e02e24;
+  /* border-right: 1px solid #ddd; */
+}
+.middle_have_cut {
+  text-align: center;
+  margin-top: 5vh;
+  font-size: 22rpx;
+}

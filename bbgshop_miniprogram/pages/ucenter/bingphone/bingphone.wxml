@@ -1,0 +1,67 @@
+<!--pages/ucenter/bingphone/bingphone.wxml-->
+<!-- <view wx:if="{{!isbing}}">
+  <view class='bingtitle'><span wx:if="{{userinfo.mobile != 0 }}">{{userinfo.mobile}}</span>{{bingisnottext}}</view>
+  <view class="add-form" class='bingfrom'>
+        <view class="form-item" class='bingitem'>
+            <input class="input" class='bingiteminput' bindinput="bindinputMobile" placeholder="手机号码" />
+        </view>
+        <view class="form-item"  class='bingitem'>
+            <input class="input" class='bingiteminput' bindinput="bindinputcode" placeholder="验证码"/>
+        </view>
+        <view class='btnarea'>
+          <button size="mini" class='codebtn' type="default"  loading="{{codeloading}}" disabled="{{codedisabled}}" bindtap="sendcode">{{sendcodetext}}</button>
+          <button size="mini" class='checkedbtn' type="default" disabled="{{checkdisabled}}" bindtap="checked"> 确定 </button>
+        </view>
+   </view>
+</view> -->
+
+<!-- <view wx:if="{{isbing}}">
+  <view class='bingtitle'>您已绑定手机号</view>
+  <image class='bing_image' src='../../../image/phonebing.png'></image>
+  <view class='bingphone'>{{userinfo.mobile}}</view>
+  <button size="mini" class='changebtn' type="default" disabled="{{changeisabled}}" bindtap="changed"> 更换绑定手机号 </button> -->
+
+
+<view wx:if="{{isbing}}">
+  <view class='bingtitle'>您已绑定手机号</view>
+  <image class='bing_image' src='../../../image/phonebing.png'></image>
+  <view class='bingphone'>{{userinfo.mobile}}</view>
+  <button size="mini" class='changebtn' type="default" disabled="{{changeisabled}}" bindtap="changed"> 更换绑定手机号 </button>
+</view>
+<view wx:if="{{!isbing}}">
+  <view class='bingtitle'>您还未绑定手机号</view>
+  <image class='bing_image' src='../../../image/phonebing.png'></image>
+  <view class='bingphone'>{{userinfo.mobile}}</view>
+  <button size="mini" class='changebtn' type="default" disabled="{{changeisabled}}" bindtap="startBingPhone"> 立即绑定手机号 </button>
+</view>
+
+<view class='mask_model' bindtap='hide_model' wx:if="{{show_mask}}"></view>
+<view class='show_model' wx:if="{{show_mask}}">
+<view class='apply_dis_title'>绑定手机号</view>
+  <view class='apply_dis_phone_area'>
+    <view class='apply_dis_phone_area_left'>国家区号</view>
+    <picker bindchange="bindPickerChange" value="{{AreacodeArray_index}}" range="{{AreacodeArray}}" >
+    <view class="apply_dis_phone_area_input no_width" style='color:#757575'>
+      {{AllAreacodeArray[AreacodeArray_index].country_name_chinese}}  +{{AllAreacodeArray[AreacodeArray_index].phone_code}}
+    </view>
+  </picker>
+  </view>
+    <view class='apply_dis_phone_area'>
+    <view class='apply_dis_phone_area_left'>手机号</view>
+    <input class='apply_dis_phone_area_input' bindinput='phoneinput' placeholder-style='font-weight:normal' placeholder='输入手机号'></input>
+  </view>
+    <view class='apply_dis_code_area'>
+      <view class='apply_dis_code_area_left'>
+        <view class='apply_dis_code_area_left_text'>
+          验证码
+        </view>
+     <input class='apply_dis_code_input' bindinput='codeinput' placeholder-style='font-weight:normal' placeholder='输入短信验证码'></input> 
+      </view>
+      <view class='apply_dis_code_area_getbtn_area'>
+      <button class='apply_dis_code_area_getbtn' loading="{{codeloading}}" disabled="{{codedisabled}}" bindtap='getcode'>{{sendcodetext}}</button>
+      </view>
+  </view>
+  <view class='actionbuttom_area'>
+    <button class='btn' bindtap="checked">确认</button>
+  </view>
+</view>

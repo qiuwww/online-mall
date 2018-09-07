@@ -1,0 +1,126 @@
+<!--pages/ucenter/distribution/distribution.wxml-->
+<view wx:if='{{distributionInfo.length == 0}}'>
+    <scroll-view scroll-y class="detail">
+      <import src="../../../lib/wxParse/wxParse.wxml" />
+      <template is="wxParse" data="{{wxParseData:rulestext.nodes}}" />
+    </scroll-view>
+  <button class='becomedistribution' bindtap='becomedistribution' disabled='{{!auth || is_apply == "1"}}'>申请成为志愿者
+    <span wx:if="{{!auth}}" style="font-size:22rpx;">（未授权）</span>
+    <span wx:if="{{is_apply == '1'}}" style="font-size:22rpx;">（申请已提交，请耐心等待审核）</span>
+    <span wx:if="{{is_apply == '2'}}" style="font-size:22rpx;">（申请已被拒绝，可点击重新申请）</span>
+  </button>
+</view>
+<view class='mask_model' bindtap='hide_model' wx:if="{{show_mask}}"></view>
+<view class='show_model' wx:if="{{show_mask}}">
+<view class='apply_dis_title'>申请成为志愿者</view>
+  <view class='apply_dis_phone_area'>
+    <view class='apply_dis_phone_area_left'>国家区号</view>
+    <picker bindchange="bindPickerChange" value="{{AreacodeArray_index}}" range="{{AreacodeArray}}" >
+    <view class="apply_dis_phone_area_input no_width" style='color:#757575'>
+      {{AllAreacodeArray[AreacodeArray_index].country_name_chinese}}  +{{AllAreacodeArray[AreacodeArray_index].phone_code}}
+    </view>
+  </picker>
+  </view>
+    <view class='apply_dis_phone_area'>
+    <view class='apply_dis_phone_area_left'>手机号</view>
+    <input class='apply_dis_phone_area_input' bindinput='phoneinput' placeholder-style='font-weight:normal' placeholder='输入手机号'></input>
+  </view>
+    <view class='apply_dis_code_area'>
+      <view class='apply_dis_code_area_left'>
+        <view class='apply_dis_code_area_left_text'>
+          验证码
+        </view>
+     <input class='apply_dis_code_input' bindinput='codeinput' placeholder-style='font-weight:normal' placeholder='输入短信验证码'></input> 
+      </view>
+      <view class='apply_dis_code_area_getbtn_area'>
+      <button class='apply_dis_code_area_getbtn' loading="{{codeloading}}" disabled="{{codedisabled}}" bindtap='getcode'>{{sendcodetext}}</button>
+      </view>
+  </view>
+  <view class='actionbuttom_area'>
+    <button class='btn' bindtap="checked">确认</button>
+  </view>
+</view>
+<view wx:if='{{distributionInfo.length !== 0}}'>
+  <!-- <view class='l_top_area'>
+    <image class='l_top_area_avatar' src='{{userInfo.avatarUrl}}'></image>
+    <view class='l_top_area_nickname'>{{userInfo.nickName}}</view>
+    <view class='l_top_area_addtime'>加入时间: {{add_local_time}}</view>
+  </view> -->
+  <!-- <view class='back_img'> -->
+    <!-- <view class='distribution_title'>分销员中心</view> -->
+    <view class='top_area'>
+      <image class='top_area_avatar' src='{{userInfo.avatar}}'></image>
+      <view class='top_area_nickname'>{{userInfo.nickname}}</view>
+      <image class='top_area_simple' src='../../../image/simple.png' bindtap='see_simple'></image>
+      <view class='top_area_addtime'>加入时间: {{add_local_time}}</view>
+    </view>
+
+    <view class='middle_area'>
+      <view class='middle_area_item borderright'>
+        <view>志愿金额</view>
+        <view>￥{{distributionInfo[0].children_have_deal_money}}</view>
+      </view>
+      <view class='middle_area_item borderright'>
+        <view>志愿订单</view>
+        <view>{{distributionInfo[0].have_deal_order_num}}</view>
+      </view>
+      <view class='middle_area_item'>
+        <view>我的团队</view>
+        <view>{{distributionInfo[0].peoplenum}}</view>
+      </view>
+    </view>
+    <view class='middle_catch_area'>
+      <view class='middle_catch_area_all_text'>累计基金: ￥{{distributionInfo[0].children_have_deal_money}}</view>
+      <view class='middle_catch_area_catch_text'>可提现基金 （元）</view>
+      <view class='middle_catch_area_catch_rate'>{{distributionInfo[0].localrate}}%</view>
+      <view class='middle_catch_area_catch'>{{distributionInfo[0].can_withdraw_cash}}</view>
+      <button bindtap='tocatch' class='middle_catch_area_catch_btn' disabled='{{!cancatch}}'>
+        <span wx:if="{{!cancatch}}">满 {{distributionInfo[0].localprice}} 元提现</span>
+        <span wx:if="{{cancatch}}">去提现</span>
+      </button>
+    </view>
+    <view class='middle_bottom_area'>
+      <view class='middle_bottom_title'>
+        <view class='middle_bottom_title_name borderright'>用户</view>
+        <view class='middle_bottom_title_name borderright'>时间</view>
+        <view class='middle_bottom_title_name borderright'>订单价格</view>
+        <view class='middle_bottom_title_name'>基金</view>
+      </view>
+      <view class='middle_bottom_noitem' wx:if='{{disgoods.length == 0}}'>您还没有团队购买过商品喔 ~</view>
+      <scroll-view scroll-y class='scroll_area' wx:if='{{disgoods.length !== 0}}'>
+        <view class='middle_bottom_item' wx:for="{{disgoods}}" wx:key="{{item.id}}">
+          <view class='middle_bottom_item_name borderright'>{{item.children_name}}</view>
+          <view class='middle_bottom_item_name lineheight borderright'>{{item.add_localtime}}</view>
+          <view class='middle_bottom_item_name borderright'>￥{{item.order_price}}</view>
+          <view class='middle_bottom_item_name '>￥{{item.withdraw_cash}}</view>
+        </view>
+      </scroll-view>
+    </view>
+    <view class='middle_catch_record'>
+      <span class="middle_catch_record_no" wx:if="{{discatch.length == 0}}">暂无提现记录 ~</span>
+      <scroll-view scroll-y class='scroll_view_two' wx:if="{{discatch.length !== 0}}">
+        <span class="middle_catch_record_have">
+          <view class='middle_catch_record_have_item' wx:for="{{discatch}}" wx:key="{{item.id}}">您 {{item.add_localtime}} 申请提现 ￥
+            <span style="font-weight:bold">{{item.catch_money}}</span> 元
+            <span style="font-weight:bold" wx:if="{{item.is_success == 0}}">待处理</span>
+            <span style="font-weight:bold" wx:if="{{item.is_success == 1}}">提现成功</span>
+            <span style="font-weight:bold" wx:if="{{item.is_success == 2}}">被后台拒绝</span>
+            <span style="font-weight:bold" wx:if="{{item.is_success == 3}}">已提交银行处理</span>
+            <span style="font-weight:bold" wx:if="{{item.is_success == 4}}">异常，等待资金退回</span>
+            <span style="font-weight:bold" wx:if="{{item.is_success == 5}}">提现失败，资金已退回</span>
+          </view>
+        </span>
+      </scroll-view>
+    </view>
+    <view class='bottom_fiex_area' bindtap='seerule'>
+      <span class="bottom_fiex_text">贝堡网络科技提供技术支持</span>
+    </view>
+  <!-- </view> -->
+</view>
+<view class='recharge_box_mask' wx:if="{{show_simple_box}}" bindtap='close_mask'></view>
+<scroll-view scroll-y class='recharge_box' wx:if="{{show_simple_box}}">
+  <!-- <scroll-view scroll-y class="recharge_box_detail"> -->
+      <import src="../../../lib/wxParse/wxParse.wxml" />
+      <template is="wxParse" data="{{wxParseData:rulestext.nodes}}" />
+    <!-- </scroll-view> -->
+</scroll-view>

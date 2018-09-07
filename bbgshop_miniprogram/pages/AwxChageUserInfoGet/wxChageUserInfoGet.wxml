@@ -1,0 +1,14 @@
+<!--pages/AwxChageUserInfoGet/wxChageUserInfoGet.wxml-->
+<view class='login_box' wx:if="{{canIUse}}">
+<view class='login_box_img_area'>
+<image class='login_box_img' src='../../image/logo.png'></image>
+<span class="login_box_imgtext">贝堡商城</span>
+</view>
+<view class='login_tip_area'>
+<view class='login_tip'>贝堡商城不会公开您的个人信息</view>
+<view class='login_tip'>授权登录仅仅是为了区分您和其他用户</view>
+</view>
+  <button class='login_btn' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">授权登录</button>
+</view>
+<view class='tip' wx:else>微信官方接口调整，您的微信版本过低，请先升级微信版本</view> 
+<view class='tiptwo' >Tip：拒绝授权会导致部分功能缺失 !</view> 

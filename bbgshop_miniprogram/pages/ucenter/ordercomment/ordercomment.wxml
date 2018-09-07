@@ -1,0 +1,47 @@
+<!--pages/ucenter/ordercomment/ordercomment.wxml-->
+<!-- <text>pages/ucenter/ordercomment/ordercomment.wxml</text> -->
+<!-- <view class="commodity_screen" bindtap="hideModalComment" wx:if="{{showModalStatusComment}}"></view> -->
+<!-- <view class="commodity_attr_box"> -->
+  <!-- <view class='comment_title'>发表评论</view> -->
+  <view class='comment_goods_area'>
+    <view class='comment_goods_item' wx:for="{{list}}" wx:for-index="idx" wx:for-item="itemName">
+      <view class='comment_goods'>
+        <image class='comment_image' src='{{itemName.list_pic_url}}'></image>
+        <view class='comment_goods_name'>{{itemName.goods_name}}</view>
+        <view class='comment_goods_num'>x {{itemName.number}}</view>
+        <view class='comment_goods_price'>￥ {{itemName.retail_price}}</view>
+        <view class='comment_pesa'>{{itemName.goods_specifition_name_value}}</view>
+      </view>
+      <view class='comment_conent_area'>
+        <textarea bindinput="textinput" maxlength="-1" style='height:28vh;width:calc(96vw - 20rpx);padding:10rpx;' placeholder='请输入评价' placeholder-style='font-size:24rpx'/>
+      </view>
+      <view class='comment_score_area'>
+        <view class='star_area_value'>总体评分：</view>
+        <view class='star_area_score'>
+          <view wx:for="{{stars}}">
+            <image class="star-image" style="left: {{item*52}}rpx" src="{{key > item ?(key-item == 0.5?halfSrc:selectedSrc) : normalSrc}}">
+              <view class="item" style="left:0rpx;" data-key="{{item+0.5}}" bindtap="selectLeft"></view>
+              <view class="item" style="left:26rpx" data-key="{{item+1}}" bindtap="selectRight"></view>
+            </image>
+          </view>
+        </view>
+      </view>
+      <scroll-view scroll-y class='refund_img_area'>
+        <view class="refund_image_container" wx:for="{{refund_uploadimg}}" wx:key="{{item.id}}">
+          <image class="image" src="{{item.img}}" mode="aspectFit" bindlongtap='delimg' data-index='{{index}}'></image>
+        </view>
+        <view class='refund_img_btn' bindtap='didPressChooesImage'>上传图片</view>
+      </scroll-view>
+
+      <view class='comment_bottom'>
+        <view class='refund_bottom_btnback' bindtap='backbtn'>
+          返回
+        </view>
+        <button class='refund_bottom_btn' bindtap='refund' data-goods='{{itemName}}'>
+          提交评论
+        </button>
+      </view>
+    </view>
+  </view>
+<!--  -->
+<!-- </view> -->

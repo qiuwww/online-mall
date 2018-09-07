@@ -1,0 +1,3 @@
+<!--pages/luckdraw_all/luckdraw_all.wxml-->
+<!-- <text>pages/luckdraw_all/luckdraw_all.wxml</text> -->
+<image class='img' wx:for="{{all_join}}" wx:key="{{item.id}}" src='{{item.join_user_avatar}}'></image>

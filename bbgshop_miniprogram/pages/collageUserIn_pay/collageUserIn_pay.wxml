@@ -1,0 +1,64 @@
+<!--pages/collageUserIn_pay/collageUserIn_pay.wxml-->
+<!-- <text>pages/collageUserIn_pay/collageUserIn_pay.wxml</text> -->
+<view class="address-box">
+  <view class="address-item" bindtap="getaddressList" wx:if="{{addressId != 0}}">
+    <view class="l">
+      <text class="name">{{checkedAddress.name}}</text>
+      <text class="default" wx:if="{{checkedAddress.is_default === 1}}">默认</text>
+    </view>
+    <view class="m">
+      <text class="mobile">{{checkedAddress.mobile}}</text>
+      <!-- <text class="mobile">123</text> -->
+      <text class="address">{{checkedAddress.full_region + checkedAddress.address}}</text>
+    </view>
+    <view class="r">
+      <image src="/static/images/address_right.png"></image>
+    </view>
+  </view>
+  <view class="address-item address-empty" bindtap="getaddressList" wx:if="{{addressId == 0}}">
+    <view class="m">
+      没有收货地址或没有选择收货地址，点击选择
+    </view>
+    <view class="r">
+      <image src="/static/images/address_right.png"></image>
+    </view>
+  </view>
+</view>
+<view class='goods_area'>
+  <image class='goods_img' src='{{collageGoods.list_pic_url}}'></image>
+  <view class='goods_name'>{{collageGoods.goods_name}}</view>
+  <view class='goods_skuvalue'>{{collageGoods.goods_specifition_name_value}}</view>
+  <view class='goods_price'>原价￥
+    <span style="font-size:28rpx;color:#ff4444;font-weight:bold">{{collageGoods.retail_price}}</span> 拼团价￥
+    <span style="font-size:33rpx;color:#ff4444;font-weight:bold;padding:0 8rpx;">{{collageUser.collage_price}}</span>元</view>
+</view>
+
+<view class='collage_price_area'>
+  <view class='collage_price_value'>总价</view>
+  <view class='collage_price_price'>
+    ￥<span style="font-size:33rpx;color:#ff4444;font-weight:bold;">{{collageUser.collage_price}}</span>
+  </view>
+</view>
+<view class='tip'>所有参与拼团的，拼团成功之后都会得到此商品！</view>
+<view class='collage_bottom'>
+  <view class='collage_bottom_canel' bindtap='canelcollage'>取消</view>
+  <view class='collage_bottom_sure' wx:if="{{!is_pay}}" bindtap='surecollage'>支付￥
+    <span style="font-size:35rpx;color:#ffd600;font-weight:bold;padding:0 5rpx;">{{collageUser.collage_price}}</span>参与好友拼团</view>
+  <!-- <view class='collage_bottom_sure' wx:if="{{is_pay == 1}}" bindtap='tocollagegoods'>进入拼团页面</view> -->
+</view>
+<view class="commodity_screen" bindtap="hideModalAress" wx:if="{{showModalStatusAress}}"></view>
+<view animation="{{animationDataAress}}" class="commodity_attr_box" wx:if="{{showModalStatusAress}}">
+  <view class="address_box" wx:for="{{addressList}}" wx:key="{{item.id}}" wx:if="{{addressList.length > 0}}">
+    <view class='address_box_item' bindtap='selectAddress' data-addressid='{{item.id}}'>
+      <view class='address_item_name'>{{item.name}}</view>
+      <view class='address_item_phone'>{{item.mobile}} {{item.id}}</view>
+      <view class='address_item_address'>{{item.full_region}} {{item.address}}</view>
+      <image class='address_item_axs' src="/static/images/address_right.png"></image>
+    </view>
+  </view>
+  <view class='address_box_noitemasx' bindtap='toAddress'>添加其他收货地址</view>
+
+  <view class="address_box" bindtap='toAddress' wx:if="{{addressList.length == 0}}">
+    <view class='address_box_noitem'>您还没有设置收货地址，点击添加</view>
+  </view>
+</view>

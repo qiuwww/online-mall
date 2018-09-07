@@ -1,0 +1,224 @@
+page{
+  margin-top: 0 !important;
+}
+.container{
+    background: #fafafa;
+    height: 100%;
+}
+.cate-nav{
+    position: fixed;
+    /* position: sticky; */
+    left:0;
+    top:0;
+    z-index: 1000;
+    box-shadow: 1rpx 1rpx 20rpx 1rpx #ddd; 
+}
+/* .fixed {
+  position: fixed;
+  top:0;
+  left:0;
+} */
+.comy_tip_gory {
+  margin: 20rpx;
+}
+
+/* 以下为布局骨架 */
+.skeleton_cate_item {
+  margin-top: 88rpx;
+  height: auto;
+  overflow: hidden;
+}
+.skeleton_cate_item_h {
+  height: 145rpx;
+  width: 750rpx;
+  display: flex;
+  /* border: 1px solid black; */
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.skeleton_cate_item_h_name {
+  display: block;
+  height: 42rpx;
+  margin-bottom: 18rpx;
+  width: 150rpx;
+  background: #f6f6f6;
+  /* border: 1px solid black; */
+}
+.skeleton_cate_item_h_desc {
+  display: block;
+  height: 32rpx;
+  width: 350rpx;
+  background: #f6f6f6;
+}
+.skeleton_cate_item_b {
+  width: 750rpx;
+  padding: 0 3.25rpx;
+  height: auto;
+  overflow: hidden;
+  /* border: 1px solid #333; */
+}
+.skeleton_cate_item_item {
+  float: left;
+  background: #fff;
+  width: calc(50% - 10rpx);
+  margin-left: 8rpx;
+  margin-bottom: 8rpx;
+  overflow: hidden;
+  text-align: center;
+  background: #fff;
+  padding-top: 5rpx;
+  height: auto;
+}
+.skeleton_cate_item_b_img {
+  width: 97%;
+  height: 375rpx;
+  background: #f6f6f6;
+}
+.skeleton_cate_item_b_name {
+  display: block;
+  width: 88%; 
+  margin: 0 auto;
+  height: 48rpx; 
+  background: #f6f6f6;
+}
+.skeleton_cate_item_b_price {
+  display: block;
+  width: 88%;
+  margin: 5rpx auto;
+  margin-bottom: 10rpx;
+   height: 48rpx; 
+  background: #f6f6f6; 
+}
+/* 、、、、、、、、、、、、、、、、、 */
+.no_this_list {
+  font-size: 22rpx;
+  text-align: center;
+  color: #757575;
+  background: #fff;
+  padding-top: 33vh;
+  padding-bottom: calc(67vh - 270rpx)
+}
+.cate-nav-body{
+    height: 84rpx;
+    white-space: nowrap;   
+    background: #fff;
+    border-top: 1px solid #eee;
+    /* border-bottom: 1px solid #eee; */
+    overflow: hidden;
+}
+
+.cate-nav .item{
+    display: inline-block;
+    height: 84rpx;
+    min-width: 130rpx;
+    padding: 0 15rpx;
+}
+
+.cate-nav .item .name{
+    display: block;
+    height: 84rpx;
+    padding: 0 20rpx;
+    line-height: 84rpx;
+    color: #333;
+    font-size: 30rpx;
+    width: auto;
+}
+
+.cate-nav .item.active .name{
+    color: #dc3022;
+    font-weight: bold;
+    border-bottom: 2px solid #dc3022;
+}
+
+.cate-item{
+    margin-top: 88rpx;
+    height: auto;
+    overflow: hidden;
+}
+
+.cate-item .h{
+    height: 145rpx;
+    width: 750rpx;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.cate-item .h .name{
+    display: block;
+    height: 35rpx;
+    margin-bottom: 20rpx;
+    font-size: 30rpx;
+    color: rgb(90, 90, 90);
+}
+
+.cate-item .h .desc{
+    display: block;
+    height: 24rpx;
+    font-size: 24rpx;
+    color: #999;
+}
+
+.cate-item .b{
+  width: 750rpx;
+  padding: 0 3.25rpx;
+  height: auto;
+  overflow: hidden;
+}
+
+.cate-item .b .item{
+    float: left;
+  background: #fff;
+  width: calc(50% - 6.5rpx);
+   /* margin-bottom: 2.25rpx;  */
+   margin-left: 2.75px;
+  /* height: 502rpx; */
+  overflow: hidden;
+  text-align: center;
+  /* padding: 15rpx 31.25rpx; */
+   border-right: 1px solid #f4f4f4; 
+   border-bottom: 1px solid #f4f4f4; 
+  background: #fff;
+  padding-top: 15rpx;
+  /* padding-bottom: 33.333rpx; */
+  height: auto;
+}
+
+.cate-item .b .item-b{
+  margin-left: 2.75rpx;
+}
+
+.cate-item .item .img{
+  width: 302rpx;
+  height: 302rpx;
+}
+
+.cate-item .item .name{
+  display: block;
+  width: 95%; 
+  margin: 0 auto;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+   /* padding: 0 20rpx;  */
+   overflow: hidden; 
+   height: 66rpx; 
+  /* margin: 11.5rpx 0 22rpx 0; */
+  text-align: center;
+  font-size: 24rpx;
+  color: #333; 
+}
+
+.cate-item .item .price{
+   display: block;
+  width: 80%;
+  margin: 5rpx auto;
+   margin-bottom: 10rpx; 
+  /* height: 30rpx; */
+  text-align: center;
+  font-size: 30rpx;
+  color: #b4282d;
+}

@@ -1,0 +1,110 @@
+<image class='index_top_area' bindtap="goLogin">
+  <image class='index_top_avatar' src="{{userInfo.avatar}}"></image>
+  <view class='index_top_nickname'>{{userInfo.nickname}}</view>
+  <view class='index_top_desc' wx:if="{{userInfo.mobile && userInfo.mobile !== 0}}">{{userInfo.mobile}}</view>
+  <!-- <view class='index_top_desc' wx:if="{{!userInfo.mobile || userInfo.mobile == 0}}">用户未绑定手机号</view> -->
+  <!-- <view class='index_top_level' wx:if="{{CorporateName == 'dw'}}"><span class="background">VIP <span class="big">{{userInfo.user_level}}</span> 级会员</span></view> -->
+  <view class='index_top_level' wx:if="{{CorporateName == 'dw'}}">
+    <span class="background red">{{userInfo.user_level_name}}</span>
+  </view>
+  <!-- {{userInfo.user_level_name}} -->
+</image>
+<view class='order_middle_area'>
+  <view class='order_middle_row' bindtap='jumpPage' data-route='/pages/ucenter/order/order'>
+    <view class='order_middle_row_left'>我的订单</view>
+    <image class='order_middle_row_right' src='../../../image/arrows.png'></image>
+  </view>
+  <view class='order_middle_column'>
+    <view class='order_middle_column_item' bindtap='jumpOrderIndex' data-index='0' data-route='/pages/ucenter/order/order'>
+      <image class='order_middle_column_item_image' src='../../../image/1.png'></image>
+      <view class='order_middle_column_item_text'>待付款</view>
+    </view>
+    <view class='order_middle_column_item' bindtap='jumpOrderIndex' data-index='1' data-route='/pages/ucenter/order/order'>
+      <image class='order_middle_column_item_image' src='../../../image/2.png'></image>
+      <view class='order_middle_column_item_text'>待发货</view>
+    </view>
+    <view class='order_middle_column_item' bindtap='jumpOrderIndex' data-index='2' data-route='/pages/ucenter/order/order'>
+      <image class='order_middle_column_item_image' src='../../../image/3.png'></image>
+      <view class='order_middle_column_item_text'>待收货</view>
+    </view>
+    <view class='order_middle_column_item' bindtap='jumpOrderIndex' data-index='3' data-route='/pages/ucenter/order/order'>
+      <image class='order_middle_column_item_image' src='../../../image/4.png'></image>
+      <view class='order_middle_column_item_text'>已完成</view>
+    </view>
+    <view class='order_middle_column_item' bindtap='jumpOrderIndex' data-index='4' data-route='/pages/ucenter/order/order'>
+      <image class='order_middle_column_item_image' src='../../../image/5.png'></image>
+      <view class='order_middle_column_item_text'>退款/售后</view>
+    </view>
+  </view>
+</view>
+<view class='box_middle_tip'>
+  <view class='order_middle_row_left'>其他服务</view>
+  <!-- <image class='order_middle_row_right transformd' src='../../../image/arrows.png' ></image> -->
+</view>
+<view class='box_bottom_area'>
+  <view class='box_bottom_item' bindtap='jumpPage' data-route='/pages/ucenter/coupon/coupon'>
+    <image class='box_bottom_item_image' src='../../../image/ucenter_coupon.png'></image>
+    <view class='box_bottom_item_text'>我的优惠券</view>
+  </view>
+  <view class='box_bottom_item' bindtap='jumpPage' data-route='../address/address'>
+    <image class='box_bottom_item_image' src='../../../image/ucenter_address.png'></image>
+    <view class='box_bottom_item_text'>地址管理</view>
+  </view>
+  <view class='box_bottom_item' bindtap='jumpPage' data-route='/pages/ucenter/collect/collect'>
+    <image class='box_bottom_item_image' src='../../../image/ucenter_collect.png'></image>
+    <view class='box_bottom_item_text'>我的收藏</view>
+  </view>
+  <view class='box_bottom_item' bindtap='jumpPage' data-route='/pages/ucenter/footprint/footprint'>
+    <image class='box_bottom_item_image' src='../../../image/ucenter_footprint.png'></image>
+    <view class='box_bottom_item_text'>我的足迹</view>
+  </view>
+  <view class='box_bottom_item' bindtap='jumpPage' data-route='../bingphone/bingphone'>
+    <image class='box_bottom_item_image' src='../../../image/ucenter_bingphone.png'></image>
+    <view class='box_bottom_item_text'>绑定手机</view>
+  </view>
+  <view class='box_bottom_item' bindtap='jumpPage' data-route='/pages/Resagin_bargain/Resagin_bargain'>
+    <image class='box_bottom_item_image' src='../../../image/ucenter_bargain.png'></image>
+    <view class='box_bottom_item_text'>砍价</view>
+  </view>
+  <view class='box_bottom_item' bindtap='jumpPage' data-route='/pages/ucenter/collage/collage'>
+    <image class='box_bottom_item_image' src='../../../image/ucenter_collage.png'></image>
+    <view class='box_bottom_item_text'>拼团</view>
+  </view>
+  <view class='box_bottom_item' bindtap='jumpPage' data-route='/pages/ucenter/luckdraw/luckdraw'>
+    <image class='box_bottom_item_image' src='../../../image/lucky.png'></image>
+    <view class='box_bottom_item_text'>抽奖</view>
+  </view>
+  <view class='box_bottom_item' bindtap='jumpPage' data-route='../bingbankcard/bingbankcard'>
+    <image class='box_bottom_item_image' src='../../../image/ucenter_bank.png'></image>
+    <view class='box_bottom_item_text'>绑定银行卡</view>
+  </view>
+  <view class='box_bottom_item' bindtap='jumpPage' data-route='/pages/ucenter/distribution/distribution'>
+    <image class='box_bottom_item_image' src='../../../image/ucenter_distribution.png'></image>
+    <view class='box_bottom_item_text'>躺赢公益基金</view>
+  </view>
+  <view wx:if="{{CorporateName == 'dw'}}" class='box_bottom_item' bindtap='jumpPage' data-route='/pages/ucenter/level_page/level_page'>
+    <image class='box_bottom_item_image' src='../../../image/level.png'></image>
+    <view class='box_bottom_item_text'>会员中心</view>
+  </view>
+  <view class='box_bottom_item' bindtap='jumpPage' data-route='/pages/couponCenter/couponcenter'>
+    <image class='box_bottom_item_image' src='../../../image/ucenter_couponcenter.png'></image>
+    <view class='box_bottom_item_text'>领券中心</view>
+  </view>
+  <view class='box_bottom_item' bindtap='jumpPage' data-route='/pages/ucenter/feedback/feedback'>
+    <image class='box_bottom_item_image' src='../../../image/ucenter_feedback.png'></image>
+    <view class='box_bottom_item_text'>意见反馈</view>
+  </view>
+  <view wx:if="{{CorporateName == 'dw'}}" class='box_bottom_item' bindtap='jumpPage' data-route='/pages/ucenter/NoviceGuide/NoviceGuide'>
+    <image class='box_bottom_item_image' src='../../../image/ucenter_newsguides.png'></image>
+    <view class='box_bottom_item_text'>新手指南</view>
+  </view>
+  <view wx:if="{{CorporateName == 'dw'}}" class='box_bottom_item' bindtap='jumpPage' data-route='/pages/ucenter/AftersaleGuide/AftersaleGuide'>
+    <image class='box_bottom_item_image' src='../../../image/ucenter_aftersaleguide.png'></image>
+    <view class='box_bottom_item_text'>售后指南</view>
+  </view>
+  <button class='box_bottom_item' open-type='contact'>
+    <image class='box_bottom_item_image' src='../../../image/ucenter_constrem.png'></image>
+    <view class='box_bottom_item_text'>联系客服</view>
+  </button>
+</view>
+<button wx:if="{{!auth}}" class='auth_btn' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"></button>

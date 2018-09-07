@@ -1,0 +1,13 @@
+<!--pages/ucenter/bargain/bargain.wxml-->
+<scroll-view scroll-y class='luck_goods_box' wx:for="{{luckDrawList}}" bindtap='toLuckDrawDetailPage' data-id='{{item.goodsid}}' wx:if="{{luckDrawList.length > 0}}">
+  <image class='luck_goods_box_img' src='{{item.main_img}}'></image>
+  <view class='luck_goods_box_name'> {{item.goods_name}} </view>
+  <view class='luck_goods_box_desp'>拼团持续 <span class="big">{{item.user_duration_time / 3600000}}</span> 小时</view>
+  <view class='luck_goods_have_join_people' > {{item.purchased_num}} 人已参与， 满
+          <span style="color:#ff6f00;font-weight:bold;font-size:32rpx">{{item.least_coll_num}}</span> 人拼团成功</view>
+  <view class='luck_goods_price'>原价: ￥
+          <span style="color:#ff6f00;font-weight:bold;font-size:32rpx">{{item.retail_price}}</span>，拼团价: ￥
+          <span style="color:#ff5566;font-weight:bold;font-size:32rpx">{{item.collage_price}}</span></view>
+  <button class='luck_goods_box_btn join_btn' >立即参与</button>
+</scroll-view>
+<view wx:if="{{luckDrawList.length == 0}}" class='no_luck_draw'>还没有发布拼团 ！</view>

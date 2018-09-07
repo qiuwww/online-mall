@@ -1,0 +1,54 @@
+/* pages/AwxChageUserInfoGet/wxChageUserInfoGet.wxss */
+page{
+  position: fixed;
+}
+.tip {
+  font-size: 24rpx;
+  text-align: center;
+  margin-top: 40vh;
+}
+.tiptwo {
+  font-size: 20rpx;
+  color: #757575;
+  text-align: center;
+  margin-top: 50vh;
+}
+.login_box_img_area {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  left: 0;
+  width: 100vw;
+  top: 18vh;
+  /* border: 1px solid black; */
+}
+.login_box_img {
+  /* position: absolute; */
+  /* border: 1px solid black; */
+  width: 108rpx;
+  height: 108rpx;
+}
+.login_box_imgtext {
+   padding: 0 10rpx; 
+  font-size: 32rpx;
+  font-weight: bold;
+}
+.login_tip_area {
+  /* border: 1px solid black; */
+  position: fixed;
+  top: 30vh;
+  left: 0;
+  width: 100vw;
+  height: 88rpx;
+  line-height: 44rpx;
+  text-align: center;
+}
+.login_btn {
+  position: fixed;
+  width: 80vw;
+  border-radius: 15rpx;
+  font-size: 26rpx;
+  top: calc(30vh + 88rpx + 18rpx);
+  left: 10vw;
+}

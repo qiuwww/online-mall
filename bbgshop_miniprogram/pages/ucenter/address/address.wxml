@@ -1,0 +1,28 @@
+<view class="container">
+    <view class="address-list" wx:if="{{ addressList.length > 0 }}">
+        <view class="item" wx:for="{{addressList}}" wx:key="{{item.id}}"  >
+            <view class="l" bindlongtap='deleteAddress' data-address-id="{{item.id}}">
+                <view class="name">{{item.name}}</view>
+                <view class="default" wx:if="{{item.is_default}}">默认</view>
+            </view>
+            <view class="c" bindtap="addressAddOrUpdate" data-address-id="{{item.id}}">
+                <view class="mobile">{{item.mobile}}</view>
+                <view class="address">{{item.full_region + item.address}}</view>
+            </view>
+            <!-- <view class="r">
+                <image catchtap="deleteAddress" data-address-id="{{item.id}}" class="del" src="/static/images/del-address.png"></image>
+            </view> -->
+        </view>
+    </view>
+    <view class="empty-view" wx:if="{{ addressList.length <= 0 }}">
+      <image class="icon" src="http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/noAddress-26d570cefa.png"></image>
+      <text class="text">收货地址在哪里</text>
+    </view>
+    <view class='tip'>长按左侧名字删除，点击右侧内容修改</view>
+    <view class="corner_btn_area" bindtap="addressAddOrUpdate">
+      <view class='corner_btn'>新建</view>
+    </view>
+    <!-- <view class="add-address" wx:if="{{auth}}" bindtap="addressAddOrUpdate" data-address-id="0">新建</view> -->
+    <!-- <view class="add-address" wx:if="{{!auth}}" bindtap="noauth" data-address-id="0">新建</view> -->
+    
+</view>

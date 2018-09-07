@@ -1,0 +1,151 @@
+<!--pages/Resagin_bargain_goods/Resagin_bargain_goods.wxml-->
+<view class='all'>
+  <!-- <view class='all_help' bindtap='help'>活动规则 ？</view> -->
+  <view class='avted_area'>
+    <image class='avted_active_img' src='{{launched_userInfo.avatar}}'></image>
+    <view class='avted_active_nikename'>{{launched_userInfo.nickname}}</view>
+    <view class='avted_active_asktolk'>“ 我发现一件好货，来一起砍价0元拿吧 ”</view>
+    <view class='avted_goods_area'>
+      <image class='avted_goods_img' src='{{bargainUserInfo.goods_pic}}'> </image>
+      <view class='avted_goods_name'>{{bargainUserInfo.goods_name}}</view>
+      <view class='avted_goods_relprice'>￥{{bargainUserInfo.goods_rel_price}}</view>
+      <view class='avted_goods_peopleget'>{{bargainMainInfo.purchased_num}}人已{{bargainMainInfo.lowest_price}}元拿
+        <span class="avted_goods_mark">✈</span>
+      </view>
+    </view>
+  </view>
+  <view class='middle_area'>
+    <view class='middle_have_cut'>已砍
+      <span class="goods_have_cut">{{bargainUserInfo.have_cut_price}}</span> 元，还差
+      <span class="goods_havent_cut">{{bargainUserInfo.have_cut_lest}}</span> 元
+    </view>
+    <!-- <view class='middle_have_cut' wx:if="{{iscut == '17'}}">
+    hahahah 你已经砍完啦
+    </view> -->
+    <button wx:if="{{!auth}}" class='share_btn' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo"> 点击帮助好友砍价 </button>
+    <button disabled='{{share_btn_disabled}}' class='share_btn' wx:if="{{!bar_is_End && auth && is_launch_user && !IS_CUT_SUCCESS && !IS_CUT_SUCCESS_AND_GET}}" bindtap='showShareModal'> 分享给好友，多砍一刀 </button>
+    <button disabled='{{share_btn_disabled}}' class='share_btn' wx:if="{{!bar_is_End && auth && is_launch_user && IS_CUT_SUCCESS && !IS_CUT_SUCCESS_AND_GET}}" bindtap='beforShowAdressModal'> bingo ~ 点击领取 </button>
+    <button disabled='{{share_btn_disabled}}' class='share_btn' wx:if="{{!bar_is_End && auth && is_launch_user && IS_CUT_SUCCESS && IS_CUT_SUCCESS_AND_GET}}" bindtap='beforShowAdressModal'> 商品已被领取 </button>
+    <button disabled='{{share_btn_disabled}}' class='share_btn' wx:if="{{!bar_is_End && auth && !is_launch_user && !IS_CUT_SUCCESS}}" bindtap='friendCutBtn'>
+      <span wx:if="{{userIsCut == 0 && !IS_CUT_SUCCESS}}"> 点击帮助好友砍价 </span>
+      <span wx:if="{{userIsCut == 1 && !IS_CUT_SUCCESS}}"> 您已经帮好友砍过啦 ~ </span>
+    </button>
+    <button disabled='{{IS_CUT_SUCCESS}}' class='share_btn' wx:if="{{!bar_is_End && auth && !is_launch_user && IS_CUT_SUCCESS }}" bindtap=''> 砍价已经成功啦 ~ </button>
+    <button class='share_btn endtime_btn' wx:if="{{bar_is_End && auth}}" bindtap='toIndexPage'> 此砍价已过期，点击退出！!</button>
+    <span>
+      <view class='list_time' wx:if="{{!bar_is_End && !IS_CUT_SUCCESS && !IS_CUT_SUCCESS_AND_GET}}"> 还剩
+        <span class="list_time_time">{{bargainUserInfo.listtime}}</span> 结束，快来砍价吧~</view>
+      <view class='list_time outtime' wx:if="{{bar_is_End && !IS_CUT_SUCCESS}}"> 砍价已超时 </view>
+      <view class='list_time' wx:if="{{!bar_is_End && IS_CUT_SUCCESS && !IS_CUT_SUCCESS_AND_GET}}"> 砍价成功，请在
+        <span class="list_time_time">{{bargainUserInfo.listtime}}</span> 内领取 ~</view>
+      <view class='list_time outtime' wx:if="{{bar_is_End && IS_CUT_SUCCESS}}"> 发起者未领取 </view>
+      <view class='list_time' wx:if="{{IS_CUT_SUCCESS && IS_CUT_SUCCESS_AND_GET}}"> 商品已被领取 </view>
+    </span>
+  </view>
+  <view class='cutfriend_area'>
+    <view class='cutfriend_title'> 砍价帮 </view>
+    <view class='cutfriend_friend' wx:for="{{cuted_user_list}}" wx:key="{{item.id}}">
+      <image class='cutfriend_friend_img' src='{{item.friend_avatar}}'></image>
+      <view class='cutfriend_friend_name'>{{item.friend_nick_name}}</view>
+      <view class='cutfriend_friend_ask'>来一起砍价0元拿</view>
+      <view class='cutfriend_friend_cut'>
+        <!-- <image class='cutfriend_friend_cutImg'></image> -->
+        <span class='cutfriend_friend_cutname'>砍掉
+          <span class="cutfriend_friend_cutpit">{{item.cut_price}}</span> 元</span>
+      </view>
+      <!-- <view></view> -->
+    </view>
+  </view>
+  <view class='actRules_area'>
+    <view class='actRules_title'>┈ 活动规则 ┈</view>
+    <text class='actRules_content'>
+       1.邀请好友一起砍价，在规定时间内砍到最低价即可免费领取该商品；\n
+       2.每次砍价的金额随机，参与好友越多越容易成功；\n
+       3.您每天最多只能帮助三位好友砍价，对于同一个砍价，只能帮助砍价一次；\n
+       4.收货地址请在砍价到底价后再填写；\n
+       5.贝堡商城可在法律法规允许范围内对活动规则进行解释；
+    </text>
+  </view>
+   <view class="goods_detail">
+    <view class='goods_detail_title'>┈ 详情 ┈</view>
+    <import src="../../lib/wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}" />
+  </view> 
+</view>
+<view class='other_goods'>
+  <view class='other_goods_title'>┈ 其他好物 ┈</view>
+</view>
+<view class='currency_goods_view_item'>
+  <navigator url="/pages/goods/goods?id={{item.id}}" class="currency_goods_view_item_a" wx:for="{{otherGoods}}" wx:key="{{item.id}}">
+       <image class="currency_goods_view_item_img" src="{{item.list_pic_url}}"></image>
+       <view class="currency_goods_view_item_name">{{item.name}}</view> 
+       <view class="currency_goods_view_item_price"> 
+         <view class='currency_goods_view_item_price_left'> ￥ 
+           <span class="currency_goods_view_item_price_price">{{item.retail_price}}</span> 
+         </view> 
+         <view class='currency_goods_view_item_price_right'>已售 {{item.have_pay_num}} </view> 
+       </view>  
+     </navigator>  
+</view>
+<view class='comy_tip' style='margin-bottom:5rpx;margin-top:15rpx;'>您已经到底啦 ~ </view>
+<view class='comy_tip'  style='margin-bottom:5rpx;'>贝堡网络 提供技术支持</view>
+<button class='shall_buttom' bindtap='toIndexPage'>
+  去商城首页</button>
+<view class="commodity_screen" bindtap="hideShareModal" wx:if="{{showShareModalStatus}}"></view>
+<view animation="{{animationShareData}}" class="commodity_attr_box" wx:if="{{showShareModalStatus}}">
+  <view class='box_title'>你已经砍了
+    <span class='box_title_red'> {{bargainUserInfo.have_cut_price}} </span>元啦，赶快分享给好友吧</view>
+  <view class='box_content'>分享成功后可以多砍一刀哦 ~ </view>
+  <view class='box_action_area'>
+    <view class='box_actionbtn_area'>
+      <button class='box_actionbtn_item' plain bindtap='share_wechat_friend' open-type="share">
+        <image class='box_actionbtn_item_img' src='../../image/weix.png'></image>
+        <view class='box_actionbtn_item_text'>微信好友</view>
+      </button>
+      <button class='box_actionbtn_item' plain bindtap='share_wechat_qzone' open-type="share">
+        <image class='box_actionbtn_item_img' src='../../image/friend.png'></image>
+        <view class='box_actionbtn_item_text'>朋友圈</view>
+      </button>
+      <!-- <button class='box_actionbtn_item' plain bindtap='share_qq_friend' open-type="share">
+        <image class='box_actionbtn_item_img' src='../../image/qq.png'></image>
+        <view class='box_actionbtn_item_text' >QQ好友</view>
+      </button>
+      <button class='box_actionbtn_item' plain bindtap='share_qq_qzone' open-type="share">
+        <image class='box_actionbtn_item_img' src='../../image/qzone.png'></image>
+        <view class='box_actionbtn_item_text' >QQ空间</view>
+      </button> -->
+    </view>
+    <view class='box_action_canbtn' bindtap="hideModal">
+      取消
+    </view>
+  </view>
+</view>
+<!-- <view class='FCPrice_content_back_mask' wx:if="{{showFCPrice}}" bindtap='offmask'> -->
+<view class='FCPrice_content_mask' wx:if="{{showFCPrice}}" bindtap='offFCcutmask'>
+  <view class='FCPrice_content' wx:if="{{showFCPrice}}">
+    <image class='FCPrice_content_title' src='{{launched_userInfo.avatar}}'></image>
+    <view class='FCPrice_content_text'>
+      您已经成功帮助好友砍掉
+      <span class="box_title_red">{{FCcutprice}}</span> 元啦 ~
+    </view>
+    <view class='FCPrice_content_btn'> 好的
+    </view>
+  </view>
+</view>
+<!-- 以下为收货地址选择区域 -->
+<view class="commodity_screen" bindtap="hideAdressModal" wx:if="{{showAdressModalStatus}}"></view>
+<view animation="{{animationAdressData}}" class="commodity_attr_box" wx:if="{{showAdressModalStatus}}">
+  <view class="address_box" wx:for="{{addressList}}" wx:key="{{item.id}}" wx:if="{{addressList.length > 0}}">
+    <view class='address_box_item' bindtap='selectAddress' data-addressid='{{item.id}}'>
+      <view class='address_item_name'>{{item.name}}</view>
+      <view class='address_item_phone'>{{item.mobile}} {{item.id}}</view>
+      <view class='address_item_address'>{{item.full_region}} {{item.address}}</view>
+      <image class='address_item_axs' src="/static/images/address_right.png"></image>
+    </view>
+  </view>
+  <view class='address_box_noitemasx' bindtap='toAddress'>添加其他收货地址</view>
+
+  <view class="address_box" bindtap='toAddress' wx:if="{{addressList.length == 0}}">
+    <view class='address_box_noitem'>您还没有设置收货地址，点击添加</view>
+  </view>
+</view>

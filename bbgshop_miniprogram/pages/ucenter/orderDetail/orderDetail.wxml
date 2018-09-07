@@ -1,0 +1,101 @@
+<view class="container">
+  <view class="order-info">
+    <view class="item-a">订单编号：{{orderInfo.order_sn}}</view>
+    <view class="item-a" wx:if="{{refundInfo.length >= 1}}">退款编号：{{refundInfo[0].refund_sn}}</view>
+    <view class="item-a">下单时间：{{add_time}}</view>
+    <view class="item-a" wx:if="{{orderInfo.order_status == 201 || orderInfo.order_status == 300 || orderInfo.order_status == 301 || orderInfo.order_status == 400}}">付款时间：{{pay_time}}</view>
+     <view class="item-a" wx:if="{{orderInfo.order_status == 300 || orderInfo.order_status == 301 }}">发货时间：{{logic_time}}</view> 
+    <view class="item-a" wx:if="{{refundInfo.length >= 1 }}">退款创建时间：{{refund_time}}</view>   
+     <view class="item-a" wx:if="{{refundInfo.length >= 1 && refundInfo[0].isRefund == 1}}">退款成功时间：{{refundsuccess_time}}</view>    
+    <view class="item-a" wx:if="{{refundInfo.length >= 1 && refundInfo[0].abled == 1}}">退款取消时间：{{del_time}}</view> 
+    <view class="item-a" wx:if="{{orderInfo.order_status == 301 && refundInfo.length >= 1 && refundInfo[0].isRefund == 1}}">确认时间：{{refundsuccess_time}}</view>
+    <view class="item-a" wx:if="{{(orderInfo.order_status == 301 && refundInfo.length >= 1 && refundInfo[0].abled == 1) || (orderInfo.order_status == 301 && orderInfo.refund_is_success == 0)}}">确认时间：{{confirLogic_time}}</view>
+    <view class="item-a" wx:if="{{(orderInfo.order_status == 301 && refundInfo.length >= 1 && refundInfo[0].abled == 1) || (orderInfo.order_status == 301 && orderInfo.refund_is_success == 1)}}">完成时间：{{refundsuccess_time}}</view>
+    <view class="item-c">
+      <view class="l">{{orderInfo.order_status == 0 ? '应付':'实付'}}
+        <text class="cost">￥{{orderInfo.actual_price}}</text>
+      </view>
+      <view class="r">
+        <view  class="refund_text" wx:if="{{refundInfo.length >= 1 && refundInfo[0].isRefund == 1}}">退款:<text class="cost">￥{{refundInfo[0].refund_price}}</text></view> 
+        <view class="refund_text" wx:if="{{refundInfo.length >= 1 && refundInfo[0].isRefund == 1}}">{{refundInfo[0].state_text}}</view>
+        <view class="refund_text" bindtap='cancelOrder' wx:if="{{orderInfo.order_status == 0}}">取消订单</view>
+        <view class="refund_text" wx:if="{{orderInfo.order_status == 201}}">未发货</view>
+        <view class="refund_text" wx:if="{{orderInfo.order_status == 300}}">未收货</view>
+        <view class="refund_text" wx:if="{{orderInfo.order_status == 301}}">已确认</view>
+        <view class="refund_text" wx:if="{{orderInfo.order_status == 400}}">处理中</view>
+      </view>
+    </view>
+  </view>
+  <view class="order-goods">
+    <view class="h">
+      <view class="label">商品信息</view>
+      <view class="status">{{orderInfo.order_status_text}}</view>
+    </view>
+    <view class="goods">
+      <view class="item" wx:for="{{orderGoods}}" wx:key="{{item.id}}">
+        <view class="img">
+          <image src="{{item.list_pic_url}}"></image>
+        </view>
+        <view class="info">
+          <view class="t">
+            <text class="name">{{item.goods_name}}</text>
+          </view>
+          <view class="attr">{{item.goods_specifition_name_value}}</view>
+          <view class="price">￥{{item.retail_price}}</view>
+          <text class="number">x{{item.number}}</text>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view class="order-bottom">
+    <view class="address">
+      <view class="t">
+        <text class="name">{{orderInfo.consignee}}</text>
+        <text class="mobile">{{orderInfo.mobile}}</text>
+      </view>
+      <view class="b">{{orderInfo.full_region + orderInfo.address}}</view>
+    </view>
+    <view class="total">
+      <view class="t">
+        <text class="label">商品合计：</text>
+        <text class="txt">￥{{orderInfo.goods_price}}</text>
+      </view>
+      <view class="t">
+        <text class="label">运费：</text>
+        <text class="txt">￥{{orderInfo.freight_price}}</text>
+      </view>
+    </view>
+    <view class="total">
+      <view class="t">
+        <text class="label">优惠券减免：</text>
+        <text class="txt">￥{{orderInfo.coupon_price}}</text>
+      </view>
+      <view class="t">
+        <text class="label">买家备注：</text>
+        <text class="txt">{{orderInfo.postscript}}</text>
+      </view>
+    </view>
+    <view class="total" wx:if="{{refundInfo.length >= 1 && refundInfo[0].isRefund == 1}}">
+      <view class="t">
+        <text class="label">退款类型：</text>
+        <text class="txt">{{refundInfo[0].back_state == 201 ? "未发货前退款":"发货后退款"}}，{{refundInfo[0].reson_value}}，{{refundInfo[0].way_value}}</text>
+      </view>
+      <view class="t">
+        <text class="label">退款理由：</text>
+        <text class="resontxt">{{refundInfo[0].reson}}</text>
+      </view>
+      <!-- <view class="t" wx:if="{{refundInfo[0].back_state !== 201}}">
+        <text class="label">凭证图片：</text>
+        <text class="resontxt">{{refundInfo[0].reson}}</text>
+      </view> -->
+    </view>
+    <view class="pay-fee">
+      <text class="label">实付：</text>
+      <text class="txt">￥{{orderInfo.actual_price}}</text>
+    </view>
+
+  </view>
+  <!-- <view class='tip'>此版本暂不支持查看物流和相关操作，但您付款之后我们会收到订单</view>
+    <view class='tip'>并给您安排发货，请勿瞎想。</view> -->
+</view>

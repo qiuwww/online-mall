@@ -1,0 +1,98 @@
+<!--pages/couponCenter/couponcenter.wxml-->
+<view class="container">
+  <view class="coupon-form">
+    <view class="input-box">
+      <input class="coupon-sn" bindinput="bindinputcoupon" value="{{inputcoupon}}" placeholder="请输入优惠码" />
+    </view>
+    <button class="add-btn" bindtap='exchangecoupon'>兑换</button>
+  </view>
+  <view class="help" bindtap='helptip'>使用说明</view>
+  <!-- wx:for="{{couponList}}" -->
+  <view wx:if="{{couponList.length == 0}}" class='couponListnoitem'>没有发布优惠券！</view>
+  <view class="coupon_list" wx:for="{{couponList}}" wx:if="{{couponList.length > 0}}" wx:key="{{item.id}}">
+    <view class='coupon_list_left'>
+      <image class='coupon_list_left_img' wx:if="{{item.ispoint == '1'}}" src='{{item.src}}'>
+      </image>
+      <image class='coupon_list_left_img' wx:if="{{item.ispoint == '0'}}" src='{{item.src}}'>
+      </image>
+      <view class='coupon_list_left_tag ' wx:if="{{item.ispoint == '0'}}"> 全品类 </view>
+      <view class='coupon_list_left_tag tagonepoint' wx:if="{{item.ispoint == '1'}}"> 指定商品类 </view>
+      <view class='coupon_list_left_tag tagpoint' wx:if="{{item.ispoint == '2'}}">多种商品类 </view>
+       <view class='coupon_list_left_name' wx:if="{{item.ispoint == '0'}}">
+        {{item.name}}
+      </view> 
+      <view class='coupon_list_left_name nameonepoint' wx:if="{{item.ispoint == '1'}}">
+        {{item.name}}
+      </view>
+      <view class='coupon_list_left_name namepoint' wx:if="{{item.ispoint == '2'}}">
+        {{item.name}}
+      </view>
+      <view class='coupon_list_left_value' wx:if="{{item.ispoint == '0' || item.ispoint == '1'}}">
+        <span wx:if="{{item.coupon_type == 1}}">
+          <span class='coupon_list_left_value_bigger'> {{item.value}} </span> 折
+        </span>
+        <span wx:if="{{item.coupon_type == 0}}">
+          减
+          <span class='coupon_list_left_value_bigger'> {{item.value}} </span>
+          元
+        </span>
+      </view>
+      <view class='coupon_list_left_value valuepoint' wx:if="{{item.ispoint == '2'}}">
+        <span wx:if="{{item.coupon_type == 1}}">
+          <span class='coupon_list_left_value_bigger'> {{item.value}} </span> 折
+        </span>
+        <span wx:if="{{item.coupon_type == 0}}">
+          减
+          <span class='coupon_list_left_value_bigger'> {{item.value}} </span>
+          元
+        </span>
+        
+      </view>
+      <view class='coupon_list_left_pointgoods' wx:if="{{item.ispoint == '2'}}" bindtap='showModal' data-goods='{{item.goods}}'>
+          <!-- {{item.limit}} -->
+          (此优惠券支持多种商品,点击查看)
+        </view>
+
+      <view class='coupon_list_left_limit'>
+        {{item.limit}}
+      </view>
+    </view>
+    <view class='coupon_list_right'>
+      <view class='coupon_list_right_get'>
+        <progress percent="{{item.percept}}" color="#F23030" stroke-width="12" />
+        <view class='coupon_list_right_perscent'>
+          已领{{item.percept}}%
+        </view>
+      </view>
+      <view class='coupon_list_right_btn' wx:if="{{item.end == 0}}" bindtap='get_coupon' data-id='{{item.id}}' data-name='{{item.name}}'>
+        立即领取
+      </view>
+      <view class='coupon_list_right_disbtn' wx:if="{{item.end == 1}}">
+        已领完
+      </view>
+    </view>
+  </view>
+
+
+</view>
+<view class="commodity_screen" bindtap="hideModal" wx:if="{{showModalStatus}}"></view>
+<view animation="{{animationData}}" class="commodity_attr_box" wx:if="{{showModalStatus}}">
+  <!-- <view wx:for="{{pointgoods}}" class='point_goods_item'>
+
+  </view> -->
+  <scroll-view scroll-y style="height: 50vh;">
+  <view class="point_list" wx:for="{{pointgoods}}" bindtap='togoodspage' data-id='{{item.id}}' wx:key="{{item.id}}">
+      <image class='coupon_list_img' src='{{item.list_pic_url}}'>
+      </image>
+      <view class='coupon_list_name' >
+        {{item.name}}
+      </view>
+      <view class='coupon_list_tag ' > 指定商品 </view>
+      <view class='coupon_list_price ' >￥{{item.retail_price}}</view>
+  </view>
+      <view style="height: 38rpx;">
+    </view>
+  </scroll-view>
+  
+
+</view>

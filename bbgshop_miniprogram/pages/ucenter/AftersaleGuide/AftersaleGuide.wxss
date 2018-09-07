@@ -1,0 +1,28 @@
+/* pages/ucenter/AftersaleGuide/AftersaleGuide.wxss */
+.no_guide {
+  text-align: center;
+  padding-top: 45vh;
+  color: #757575;
+  font-size: 24rpx;
+}
+.skeleton_title {
+  width: 40vw;
+  height: 1.25rem;
+  background: #f4f4f4;
+  margin: 40rpx auto;
+}
+.skeleton_content {
+   width: 90vw;
+  height: 1.25rem;
+  background: #fafafa;
+  margin: 20rpx auto;
+}
+.detail {
+  /* padding: 20rpx; */
+  /* border: 1px solid black; */
+  /* position: fixed; */
+  /* right: 20rpx; */
+  /* width: calc(100vw - 40rpx); */
+  /* line-height: 1.45rem; */
+  /* height: 100vh; */
+}

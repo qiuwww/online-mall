@@ -1,0 +1,76 @@
+<!--pages/luckdraw/luckdraw.wxml-->
+<!-- <text>pages/luckdraw/luckdraw.wxml</text> -->
+<scroll-view scroll-y class='content_area'>
+<swiper class="luck_loop_image_area" indicator-dots="true" autoplay="true" interval="3000" duration="1000">
+  <swiper-item wx:for="{{luckmain.loopimage}}" wx:key="{{item.id}}">
+    <image class='luck_loop_image' src="{{item.img_url}}" ></image>
+  </swiper-item>
+</swiper>
+  <view class='luck_loop_desp'>
+    <view class='luck_loop_desp_name'>奖品 ： {{luckmain.luck_goods_name}}</view>
+    <view class='luck_loop_desp_price'>价值：￥<span class="big" >{{luckmain.luck_goods_price}}</span></view>
+    <view class='luck_loop_desp_time'>
+      <span class="time_left">开奖时间 ： {{luckmain.open_local_time}}</span>
+      <span class="time_right"> 共 x{{luckmain.luck_goods_num}} 件奖品 </span>
+    </view>
+  </view>
+  <view class='detail_title'>┈ 商品详情 ┈</view>
+  <view class="detail" style='text-align:center'>
+    <import src="../../lib/wxParse/wxParse.wxml" />
+    <template is="wxParse" data="{{wxParseData:goodsDetail.nodes}}" />
+  </view>
+  <view class='luck_join_area' wx:if="{{luckmain.is_open == 0 }}">
+    <button wx:if="{{auth}}" disabled='{{button_state == 1 || isout == 1 }}' class='luck_join_area_top' bindtap='join_luck'>
+      <span wx:if='{{button_state == 0 && auth}}'>参与抽奖</span>
+      <!-- <span wx:if='{{!auth}}'>您未授权</span> -->
+      <span wx:if='{{button_state == 1 && auth}}'>您已参与</span>
+    </button>
+    <button wx:if="{{!auth}}" class='luck_join_area_top' style='z-index:999' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">参与抽奖</button>
+    <view class='outtime_tip' wx:if="{{isout == 1}}">
+      此抽奖已截止,等待系统开奖
+    </view>
+    <view class='luck_join_area_middle'>已有 {{luckmain.have_join_people_num}} 人参与
+      <span class="seealljoiner" bindtap="seeall_joiner">查看所有参与者</span>
+    </view>
+    <view class='luck_join_area_avatar'>
+      <image class='luck_join_avatar' wx:for="{{join_list}}" wx:key='{{join_list.id}}' src='{{item.join_user_avatar}}'></image>
+      <view class='luck_tip'>注： 此抽奖将在 {{luckmain.open_local_time}} 开奖</view>
+    </view>
+  </view>
+  <view class='luckly_item_title' wx:if="{{luckmain.is_open == 1 && luckly_list.length > 0}}"> 系统已开奖，中奖者已产生 </view>
+  <view class='luckly_item_title' wx:if="{{luckmain.is_open == 1 && luckly_list.length == 0}}"> 系统开奖失败 </view>
+  <view class='luck_join_area_open' wx:if="{{luckmain.is_open == 1}}">
+    <view class='luckly_item' wx:for="{{luckly_list}}" wx:key="{{item.id}}">
+      <image class='luckly_item_avatar' src='{{item.avatar}}'></image>
+      <view class='luckly_item_nickname'>{{item.nickname}}</view>
+      <view wx:if="{{item.id === userinfo.userInfo.id}}" class='luckly_item_btn' bindtap='selectaddress'> 点击领取 </view>
+      <!-- <view wx:if="{{item.join_user_id !== userinfo.userInfo.id}}" class='luckly_item_btn' > 不能领取 </view> -->
+    </view>
+  </view>
+  <view class='luck_bottom_area tips' wx:if="{{luckmain.is_open == 1}}"> 注：遇到bug请联系贝堡网络科技有限公司 </view>
+  <view class='luck_bottom_area'>
+    贝堡网络 提供技术支持
+  </view>
+</scroll-view>
+<button wx:if="{{auth}}" disabled='{{button_state == 1 || isout == 1 }}' class='fixed_btn' bindtap='join_luck'>
+      <span wx:if='{{button_state == 0 && auth}}'>参与抽奖</span>
+      <!-- <span wx:if='{{!auth}}'>您未授权</span> -->
+      <span wx:if='{{button_state == 1 && auth}}'>您已参与</span>
+</button>
+<button wx:if="{{!auth}}" class='fixed_btn' style='z-index:999' open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">参与抽奖</button>
+<view class="commodity_screen" bindtap="hideModalAress" wx:if="{{showModalStatusAress}}"></view>
+<view animation="{{animationDataAress}}" class="commodity_attr_box" wx:if="{{showModalStatusAress}}">
+  <view class="address_box" wx:for="{{addressList}}" wx:key="{{item.id}}" wx:if="{{addressList.length > 0}}">
+    <view class='address_box_item' bindtap='selectAddress' data-addressid='{{item.id}}'>
+      <view class='address_item_name'>{{item.name}}</view>
+      <view class='address_item_phone'>{{item.mobile}} {{item.id}}</view>
+      <view class='address_item_address'>{{item.full_region}} {{item.address}}</view>
+      <image class='address_item_axs' src="/static/images/address_right.png"></image>
+    </view>
+  </view>
+  <view class='address_box_noitemasx' bindtap='toAddress'>添加其他收货地址</view>
+
+  <view class="address_box" bindtap='toAddress' wx:if="{{addressList.length == 0}}">
+    <view class='address_box_noitem'>您还没有设置收货地址，点击添加</view>
+  </view>
+</view>

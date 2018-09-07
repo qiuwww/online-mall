@@ -1,0 +1,419 @@
+page{
+  background: #eee;
+}
+.banner {
+  width: 750rpx;
+  height: 417rpx;
+}
+
+.banner image {
+  width: 100%;
+  height: 417rpx;
+}
+.comy_tip_btn {
+  margin-top: 30rpx;
+  margin-bottom: 10rpx;
+}
+/* 以下为搜索框 */
+.search {
+  height: 88rpx;
+  width: 100%;
+  padding: 0 30rpx;
+  background: #fff;
+  display: flex;
+  align-items: center;
+}
+.search .input {
+  width: 690rpx;
+  height: 56rpx;
+  background: #ededed;
+  border-radius: 8rpx;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.search .icon {
+  background: url(http://yanxuan.nosdn.127.net/hxm/yanxuan-wap/p/20161201/style/img/icon-normal/search2-2fb94833aa.png) center no-repeat;
+  background-size: 100%;
+  width: 28rpx;
+  height: 28rpx;
+}
+.search .txt {
+  height: 42rpx;
+  line-height: 42rpx;
+  color: #666;
+  padding-left: 10rpx;
+  font-size: 24rpx;
+}
+/* 以下为返回顶部 */
+.back_to_top {
+  position: fixed;
+  bottom: 50rpx;
+  right: 50rpx;
+  width: 50rpx;
+  height: 50rpx;
+  border: 1px solid #aaa;
+  color: 1px solid #aaa;
+  border-radius: 50%;
+  padding: 6rpx;
+  z-index: 999
+}
+/* 以下为抽奖样式 （多条） */
+.luckdraw_area {
+   /* border: 1px solid #333;  */
+  border-top: 1px solid #fafafa;
+  border-bottom: 1px solid #fafafa;
+  height: 238rpx;
+  background: #fff;
+  width: 100%;
+  margin: 0 auto;
+  white-space: nowrap;
+}
+.luckdraw_item {
+  display: inline-block;
+  position: relative;
+  white-space: normal;
+  /* border-top: 1px solid #eee;   */
+   border-right: 1px solid #fafafa; 
+  width: 88%;
+  height: 238rpx;
+}
+.luckdraw_item_image {
+   /* border: 1px solid #333;  */
+  /* position: absolute; */
+  position: absolute;
+  left: 10rpx;
+  top: 7rpx;
+  width: 220rpx;
+  height: 220rpx;
+}
+ .luckdraw_item_name { 
+   /* border: 1px solid #333;      */
+  position: absolute;
+  left: 240rpx;
+  /* width: calc(500rpx - 10%); */
+   right: 10rpx; 
+  top: 12rpx;
+  height: 78rpx;
+  color: #333;
+  line-height: 42rpx;
+  text-indent: 0.75rem;
+  font-weight: bold;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  font-size: 28rpx;
+}
+.luckdraw_item_des {
+   /* border: 1px solid #333;    */
+  position: absolute;
+  left: 240rpx;
+  /* width: calc(500rpx - 13%); */
+   right: 10rpx; 
+  top: 138rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  text-align: right;
+  color: #757575;
+  /* overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical; */
+  font-size: 22rpx;
+}
+.luckdraw_item_opentime {
+  /* border: 1px solid #333;    */
+  position: absolute;
+  left: 240rpx;
+  /* top: 176rpx; */
+   bottom: 15rpx; 
+  font-size: 19rpx;
+  color: #757575;
+  height: 32rpx;
+  line-height: 32rpx;
+}
+.luckdraw_item_opentime .big {
+  font-weight: bold;
+  color: #4b96bd;
+  font-size: 23rpx;
+}
+.luckdraw_item_joinbtn {
+  /* border: 1px solid #333;   */
+  position: absolute;
+  right: 10rpx;
+  bottom: 15rpx;
+  height: 40rpx;
+  width: 150rpx;
+  padding: 0rpx 15rpx;
+  line-height: 40rpx;
+  font-size: 26rpx;
+  background: #f6695e;
+  color: #f4f4f4;
+}
+/* 以下为抽奖样式 （单条） */
+.luckdraw_area_one {
+  /* border: 1px solid #333;   */
+  border-top: 1px solid #f4f4f4;
+  border-bottom: 1px solid #fafafa;
+  background: #fff; 
+  height: 238rpx;
+  width: 98%;
+  margin: 0 auto;
+}
+.luckdraw_item_one {
+   /* border: 1px solid #333;  */
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+.luckdraw_item_one_image {
+   /* border: 1px solid #333;  */
+  position: absolute;
+  left: 10rpx;
+  top: 7rpx;
+  width: 220rpx;
+  height: 220rpx;
+}
+.luckdraw_item_one_name {
+   /* border: 1px solid #333;   */
+  position: absolute;
+  left: 240rpx;
+  /* width: 500rpx; */
+  right: 10rpx; 
+  top: 15rpx;
+  color: #333;
+  height: 78rpx;
+  line-height: 42rpx;
+  text-indent: 0.75rem;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  font-size: 28rpx;
+  font-weight: bold;
+}
+.luckdraw_item_one_des {
+  /* border: 1px solid #333;   */
+  position: absolute;
+  left: 240rpx;
+  /* width: 500rpx; */
+  right: 10rpx; 
+  top: 138rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  text-align: right;
+  color: #757575;
+  font-size: 22rpx;
+}
+.luckdraw_item_one_price {
+  /* border: 1px solid #333;   */
+  position: absolute;
+  left: 240rpx;
+  /* width: 500rpx; */
+  right: 10rpx; 
+  top: 100rpx;
+  height: 32rpx;
+  line-height: 32rpx;
+  text-align: right;
+  color: #757575;
+  font-size: 22rpx;
+}
+.luckdraw_item_one_opentime {
+   /* border: 1px solid #333;   */
+  position: absolute;
+  left: 240rpx;
+  bottom: 15rpx;
+  font-size: 22rpx;
+  color: #757575;
+  height: 32rpx;
+  line-height: 32rpx;
+}
+.luckdraw_item_one_joinbtn {
+  /* border: 1px solid #333;  */
+  position: absolute;
+  right: 10rpx;
+  bottom: 12rpx;
+  height: 45rpx;
+  line-height: 45rpx;
+  font-size: 26rpx;
+  background: #f6695e;
+  color: #f4f4f4;
+}
+
+.luckdraw_item_tip {
+  position: absolute;
+  z-index: 2; 
+  right: 5rpx;
+  top: 94rpx;
+  width: 50rpx; 
+  height: 50rpx; 
+}
+/* 以下为图标bar区域 */
+.icon_bar {
+  /* border: 1px solid black; */
+  /* height: 280rpx; */
+  background: #fff;
+ /* padding: 0 25rpx;  */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  padding-bottom: 10rpx;
+} 
+.icon_bar_item {
+  /* border: 1px solid black; */
+  float: left;
+  height: 142.04rpx;
+  margin: 10rpx 19.88rpx;
+}
+.icon_bar_img {
+  /* border: 1px solid black; */
+  width: 108rpx;
+  height: 142.04rpx;
+}
+/* 以下为人气推荐区域 */
+.hot_goods_area {
+  /* border: 1px solid black; */
+}
+.hot_goods_area_item {
+  /* border: 1px solid black; */
+  position: relative;
+  width: 100%;
+  border-radius: 7rpx;
+  background: #fff;
+  margin-bottom: 3.75rpx;
+  height: 245rpx;
+}
+.hot_goods_area_item_img {
+  position: absolute;
+  top: 3rpx;
+  left: 4rpx;
+  /* border: 1px solid #333; */
+  width: 285rpx;
+  height: 238rpx;
+}
+.hot_goods_area_item_name {
+  position: absolute;
+  /* border: 1px solid black; */
+  left: 300rpx;
+  right: 8rpx;
+  top: 12rpx;
+  font-size: 30rpx;
+  line-height: 40rpx;
+  height: 82rpx;
+  color: #222;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  text-indent: 0.75rem;
+  /* border: 1px solid #333; */
+}
+.hot_goods_area_item_desc {
+  position: absolute;
+  left: 300rpx;
+  right: 4rpx;
+  top: 102rpx;
+  font-size: 22rpx;
+  line-height: 32rpx;
+  height: 64rpx;
+  overflow : hidden;
+  text-overflow: ellipsis;
+  display: -webkit-box;
+  -webkit-line-clamp: 2; 
+  -webkit-box-orient: vertical;
+  text-indent: 0.75rem;
+  color: #757575;
+  /* border: 1px solid #333; */
+}
+.hot_goods_area_item_price {
+  position: absolute;
+  left: 300rpx;
+  right: 4rpx;
+  top: 198rpx;
+  color: #dc3022;
+  font-weight: bold;
+  font-size: 22rpx;
+  text-align: right;
+  padding-right: 20rpx;
+  /* border: 1px solid #333; */
+}
+.hot_goods_area_item_desc_soled {
+  position: absolute;
+  left: 300rpx;
+  /* right: 4rpx; */
+  bottom: 14rpx;
+  color: #aaa;
+  font-size: 16rpx;
+  font-weight: bold;
+}
+
+/* .new_goods_view_item */
+.seemore{
+  float: left; 
+  background: #fff;
+  border-radius: 10rpx;  
+  /* border-bottom: 1px solid #f4f4f4; */
+  width: 98.4%; 
+  margin-left: 0.8%; 
+  height: 68rpx;
+  text-align: center;
+}
+.more-a{
+  height: 100%;
+  width: 100%;
+  position: relative;
+  /* display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center; */
+}
+.moretext {
+  font-size: 22rpx;
+  color: #757575;
+  height: 24rpx;
+  line-height: 68rpx;
+}
+.moreicon {
+  position: absolute;
+  top: 17rpx;
+  right: 0;
+  width: 34rpx;
+  height: 34rpx;
+  float: right;
+}
+.shall_buttom {
+  position: fixed;
+  z-index: 1999;
+  /* border: 1px solid #333; */
+  bottom: 20rpx;
+  right: 30rpx;
+  font-size: 20rpx;
+  padding:8rpx 15rpx !important;
+  border-radius: 12rpx;
+  color: #f4f4f4;
+  line-height:25rpx;
+  font-weight: bold;
+  background: rgba(244, 67, 54, .8);
+  letter-spacing: 1rpx;
+}
+.luckdraw_item_joinbtn.join_btn {
+  background: #ff5566;
+  color: #f4f4f4;
+}
+.luckdraw_item_joinbtn.see_btn {
+  background: #4b96bd;
+  color: #f4f4f4;
+}
+.luckdraw_item_joinbtn.after_btn {
+  background: #5dd4a4;
+  color: #f4f4f4;
+}
+.currency_title_view_title_area {
+  margin-top: 10rpx;
+}

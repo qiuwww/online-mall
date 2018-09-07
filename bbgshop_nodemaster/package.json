@@ -1,0 +1,57 @@
+{
+  "name": "nideshop",
+  "description": "nideshop - open source mini program shop",
+  "version": "1.0.0",
+  "scripts": {
+    "start": "node development.js",
+    "compile": "babel --no-babelrc src/ --presets think-node --out-dir app/",
+    "lint": "eslint src/",
+    "lint-fix": "eslint --fix src/"
+  },
+  "dependencies": {
+    "@alicloud/sms-sdk": "^1.0.8",
+    "body-parser": "^1.18.2",
+    "express": "^4.16.3",
+    "express-session": "^1.15.6",
+    "gm": "^1.23.0",
+    "gt3-sdk": "^2.0.0",
+    "jsonwebtoken": "^8.0.0",
+    "kcors": "^2.2.1",
+    "lodash": "^4.17.4",
+    "md5": "^2.2.1",
+    "mocha": "^5.0.5",
+    "moment": "^2.18.1",
+    "node-rsa": "^1.0.0",
+    "node-schedule": "^1.3.0",
+    "qiniu": "^7.0.8",
+    "request": "^2.81.0",
+    "request-promise": "^4.2.1",
+    "should": "^13.2.1",
+    "supertest": "^3.0.0",
+    "think-cache": "^1.0.0",
+    "think-cache-file": "^1.0.8",
+    "think-logger3": "^1.0.0",
+    "think-model": "^1.0.0",
+    "think-model-mysql": "^1.0.0",
+    "thinkjs": "^3.0.0",
+    "vaptcha-sdk": "^1.1.1",
+    "weixinpay": "^1.0.12",
+    "xml2js": "^0.4.19"
+  },
+  "devDependencies": {
+    "babel-cli": "^6.24.1",
+    "babel-preset-think-node": "^1.0.0",
+    "node-notifier": "^5.0.2",
+    "think-watcher": "^3.0.0",
+    "think-inspect": "0.0.2",
+    "think-babel": "^1.0.3",
+    "eslint": "^4.2.0",
+    "eslint-config-think": "^1.0.0"
+  },
+  "repository": "",
+  "license": "MIT",
+  "engines": {
+    "node": ">=6.0.0"
+  },
+  "readmeFilename": "README.md"
+}

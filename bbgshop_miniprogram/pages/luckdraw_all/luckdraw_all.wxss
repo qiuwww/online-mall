@@ -1,0 +1,9 @@
+/* pages/luckdraw_all/luckdraw_all.wxss */
+page {
+  padding: 10rpx;
+}
+.img {
+  width: 8vw;
+  height: 8vw;
+  margin: calc((80vw - 20rpx) / 85);
+}

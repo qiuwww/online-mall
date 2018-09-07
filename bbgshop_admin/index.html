@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <script type="text/javascript" src="http://resource.bbgshop.com/refer/v.js"></script>
+  <script type="text/javascript" src="http://resource.bbgshop.com/refer/vue.js"></script>
+  <script type="text/javascript" src="http://resource.bbgshop.com/refer/vant.min.js"></script>
+  <script type="text/javascript" src="http://resource.bbgshop.com/refer/elementui@1.4.13.js"></script>
+  <!-- <script src="https://unpkg.com/element-ui@1.4.13/lib/index.js"></script> -->
+  <script type="text/javascript" src="http://resource.bbgshop.com/refer/echarts@4.1.0.js"></script>
+  <link rel="stylesheet" href="http://resource.bbgshop.com/refer/vant@1.1.9.css">
+  <link rel="stylesheet" href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" >
+  <!-- <link rel="stylesheet" href="http://resource.bbgshop.com/refer/element@1.4.13.css"> -->
+  <link rel="stylesheet" href="https://unpkg.com/element-ui@1.4.13/lib/theme-default/index.css">
+  <title>德威商城·乐家家国际超市</title>
+</head>
+<style>
+  body {
+    background-color: #eee;
+    /* opacity: 0.1; */
+  }
+
+  #preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
+
+  #loader {
+    display: block;
+    position: relative;
+    left: 50%;
+    top: 50%;
+    width: 150px;
+    height: 150px;
+    margin: -75px 0 0 -75px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #9370DB;
+    -webkit-animation: spin 2s linear infinite;
+    animation: spin 2s linear infinite;
+  }
+
+  #loader:before {
+    content: "";
+    position: absolute;
+    top: 5px;
+    left: 5px;
+    right: 5px;
+    bottom: 5px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #BA55D3;
+    -webkit-animation: spin 3s linear infinite;
+    animation: spin 3s linear infinite;
+  }
+
+  #loader:after {
+    content: "";
+    position: absolute;
+    top: 15px;
+    left: 15px;
+    right: 15px;
+    bottom: 15px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    border-top-color: #FF00FF;
+    -webkit-animation: spin 1.5s linear infinite;
+    animation: spin 1.5s linear infinite;
+  }
+
+  @-webkit-keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+
+  @keyframes spin {
+    0% {
+      -webkit-transform: rotate(0deg);
+      -ms-transform: rotate(0deg);
+      transform: rotate(0deg);
+    }
+    100% {
+      -webkit-transform: rotate(360deg);
+      -ms-transform: rotate(360deg);
+      transform: rotate(360deg);
+    }
+  }
+</style>
+
+<body>
+  <div id="Loading_amoution">
+    <div id="preloader">
+      <div id="loader"></div>
+    </div>
+  </div>
+  <div id="app"></div>
+  <!-- built files will be auto injected -->
+</body>
+
+</html>

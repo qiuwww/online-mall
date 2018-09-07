@@ -1,0 +1,52 @@
+<view class="container" >
+ <!-- bindtouchstart = "handletouchtart" bindtouchend='handletouchmove' -->
+  <view class="cate-nav "> 
+    <scroll-view scroll-x="true" class="cate-nav-body" style="width: 750rpx;" scroll-left="{{scrollLeft}}">
+      <view wx:for="{{allnavcategory}}" class="item {{ id == item.id ? 'active' : ''}}" data-id="{{item.id}}" wx:key="{{item.id}}" bindtap="switchCate">
+        <view class="name">{{item.name}}</view>
+      </view>
+    </scroll-view>
+  </view>
+  <view class='skeleton' wx:if="{{showSkeleton}}">
+    <view class="skeleton_cate_item">
+      <view class="skeleton_cate_item_h">
+        <text class="skeleton_cate_item_h_name"></text>
+        <text class="skeleton_cate_item_h_desc"></text>
+      </view>
+      <view class="skeleton_cate_item_b">
+        <view class="skeleton_cate_item_item" wx:for="{{4}}">
+          <image class="skeleton_cate_item_b_img"></image>
+          <text class="skeleton_cate_item_b_name"></text>
+          <text class="skeleton_cate_item_b_price"></text>
+        </view>
+      </view>
+    </view>
+  </view>
+  <scroll-view wx:if="{{!showSkeleton}}" scroll-y="true" scroll-top="{{scrollTop}}" style="height:{{scrollHeight}};">
+    <view class="cate-item">
+      <view class="h">
+        <text class="name">{{activemainCategory.name}}</text>
+        <text class="desc">{{activemainCategory.front_name}}</text>
+      </view>
+      <view class="currency_goods_view_item" wx:if="{{point_local_category.length > 0}}">
+        <navigator class="currency_goods_view_item_a {{(iindex + 1) % 2 == 0 ? 'currency_goods_view_item_b' : ''}}" url="/pages/goods/goods?id={{iitem.id}}" wx:for="{{point_local_category}}" wx:for-item="iitem" wx:for-index="iindex" wx:key="{{iitem.id}}" wx:key="{{iitem.id}}" >
+           <image class="currency_goods_view_item_img" src="{{iitem.list_pic_url}}"></image>
+           <view class="currency_goods_view_item_name">{{iitem.name}}</view> 
+           
+          <view class="currency_goods_view_item_price">
+          <view class='currency_goods_view_item_price_left'> ￥
+            <span class="currency_goods_view_item_price_price">{{iitem.retail_price}}</span>
+          </view>
+          <view class='currency_goods_view_item_price_right'>已售 {{iitem.have_pay_num}} </view>
+        </view>
+        </navigator>
+      </view>
+      <view wx:if="{{page == 0 && point_local_category.length == 0}}" class='no_this_list'>
+        暂无此分类产品上架！
+      </view>
+    </view>
+  </scroll-view>
+</view>
+<view wx:if="{{count > point_local_category.length}}" class='comy_tip comy_tip_gory'>{{loading_text}} ~ </view>
+<view wx:if="{{point_local_category.length !== 0 && (count == point_local_category.length)}}" class='comy_tip comy_tip_gory'>您已经到底啦 ~ </view>
+<view wx:if="{{point_local_category.length !== 0 && (count == point_local_category.length)}}" class='comy_tip comy_tip_gory'>贝堡网络 提供技术支持</view>

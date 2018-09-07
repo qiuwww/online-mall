@@ -1,0 +1,74 @@
+/* pages/ucenter/bingbankcard/bingbankcard.wxss */
+page {
+  background: #f4f4f4;
+}
+.nobandcard {
+  margin-top: 20vh;
+  margin-bottom: 20vh;
+  color: #757575;
+  font-size: 23rpx;
+  text-align: center;
+}
+.card_card {
+  /* border: 1px solid black; */
+  position: relative;
+  width: 94vw;
+  margin: 3vw;
+  height: 208rpx;
+  margin-bottom: 25rpx;
+  border-radius: 15rpx;
+  background-image: linear-gradient( 45deg, #4a86c0 0%, #3d5eab 100%);
+}
+.card_card_img {
+  position: absolute;
+  width: 78rpx;
+  height: 78rpx;
+  top: 35rpx;
+  left: 35rpx;
+  /* border: 1px solid black; */
+}
+.card_card_name {
+  position: absolute;
+  left: 130rpx;
+  top: 35rpx;
+  /* border: 1px solid black; */
+  font-size: 28rpx;
+  color: #eaeaea;
+  height: 42rpx;
+  line-height: 42rpx;
+}
+.card_card_type {
+  position: absolute;
+  left: 130rpx;
+  top: 84rpx;
+  /* border: 1px solid black; */
+  font-size: 24rpx;
+  color: #cacaca;
+  height: 34rpx;
+  line-height: 34rpx;
+}
+.card_card_code {
+  position: absolute;
+  bottom: 28rpx;
+  right: 35rpx;
+  /* border: 1px solid black; */
+  color: #f4f4f4;
+  font-weight: bold;
+  letter-spacing: 2rpx;
+  font-size: 38rpx;
+}
+.card_add_card {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 94vw;
+  margin: 3vw;
+  height: 56rpx;
+  margin-top: 35rpx;
+  /* border: 1px solid black; */
+  color: #666;
+  font-weight: bold;
+  font-size: 24rpx;
+  letter-spacing: 1rpx;
+  border-bottom: 1px solid #ddd;
+}

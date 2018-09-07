@@ -1,0 +1,230 @@
+/* pages/ucenter/distribution_catch/distribution_catch.wxss */
+page {
+  background: #fefefe;
+  font-size: 29rpx;
+  
+}
+.catch_top {
+  margin-top: 8rpx;
+  /* border: 1px solid black; */
+  height: 78rpx;
+  line-height: 78rpx;
+  margin-bottom: 15rpx;
+  background: #fff;
+}
+.catch_top_left {
+  float: left;
+  /* border: 1px solid black; */
+  height: 78rpx;
+  font-size: 28rpx;
+  line-height: 80rpx;
+  padding:0 20rpx;
+  /* font-weight: bold; */
+}
+.catch_top_right {
+  float: right;
+  /* border: 1px solid black; */
+  height: 78rpx;
+  font-size: 30rpx;
+  color: #e53935;
+  line-height: 78rpx;
+  padding:0 20rpx;
+  font-weight: bold;
+}
+.catch_middle {
+  position: relative;
+  /* border: 1px solid black; */
+  height: 308rpx;
+  margin-bottom: 15rpx;
+  background: #fff;
+}
+.catch_middle_title {
+  /* border: 1px solid black; */
+  position: absolute;
+  left: 20rpx;
+  top: 20rpx;
+  font-size: 28rpx;
+}
+.catch_middle_price_area {
+   /* border: 1px solid black;  */
+  position: absolute;
+  bottom: 5rpx;
+  left: 20rpx;
+  right: 20rpx;
+  top: 68rpx;
+}
+.catch_middle_price_area_mark {
+  /* border: 1px solid black; */
+  float: left;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100rpx;
+  height: 100%;
+  font-size: 80rpx;
+}
+.catch_middle_price_area_input {
+  /* border: 1px solid black; */
+  float: left;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  width: calc(100% - 110rpx);
+  font-weight: bold;
+  height: 100%;
+  font-size: 100rpx;
+}
+.catch_middle_mid {
+  /* border: 1px solid black; */
+  background: #fff;
+  height: 78rpx;
+  line-height: 78rpx;
+  /* margin-bottom: 5rpx; */
+}
+.catch_middle_mid_left {
+  float: left;
+  /* border: 1px solid black; */
+  height: 78rpx;
+  font-size: 24rpx;
+  line-height: 78rpx;
+  padding:0 20rpx;
+}
+.catch_middle_mid_right {
+  float: right;
+  /* border: 1px solid black; */
+  height: 78rpx;
+  font-size: 24rpx;
+  color: #32a0ff;
+  line-height: 78rpx;
+  padding:0 20rpx;
+
+}
+.catch_middle_catch_to {
+  /* border: 1px solid black; */
+  border-top: 1px solid #fafafa;
+  /* margin-top: 25rpx; */
+  background: #fff;
+  height: 78rpx;
+  line-height: 78rpx;
+}
+.catch_middle_catch_to_left {
+    float: left;
+  /* border: 1px solid black; */
+  height: 78rpx;
+  font-size: 24rpx;
+  line-height: 78rpx;
+  padding:0 20rpx;
+}
+.catch_middle_catch_to_right {
+    float: right;
+  /* border: 1px solid black; */
+  height: 78rpx;
+  font-size: 24rpx;
+  color: #32a0ff;
+  line-height: 78rpx;
+  padding:0 20rpx
+}
+.catch_sure {
+  width: 80%;
+  border-radius: 15rpx;
+  height: 62rpx;
+  line-height: 62rpx;
+  margin: 56rpx auto;
+  font-size: 26rpx;
+  background: #32A0ff;
+  color: #fff;
+}
+
+.commodity_screen {
+  width: 100%;
+  height: 100%;
+  position: fixed;
+  top: 0;
+  left: 0;
+  background: #000;
+  opacity: 0.2;
+  overflow: hidden;
+  z-index: 1000;
+  color: #fff;
+}
+
+.commodity_attr_box {
+  width: 100%;
+  overflow: hidden;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  z-index: 2000;
+  background: #fff;
+  max-height: 50vh;
+  /* padding-top: 20rpx; */
+}
+.nobandcard {
+  /* margin-top: 20vh; */
+  padding-top: 20vh;
+  padding-bottom: 10vh;
+  /* margin-bottom: 20vh; */
+  color: #757575;
+  font-size: 23rpx;
+  text-align: center;
+}
+.getcashwechat {
+  text-align: center;
+  font-size: 23rpx;
+  font-weight: bold;
+  color: #3e60ac
+}
+.card_card {
+  /* border: 1px solid black; */
+  position: relative;
+  width: 94vw;
+  margin: 3vw;
+  height: 208rpx;
+  margin-bottom: 25rpx;
+  border-radius: 15rpx;
+  background-image: linear-gradient( 45deg, #4a86c0 0%, #3d5eab 100%);
+}
+.card_card_img {
+  position: absolute;
+  width: 78rpx;
+  height: 78rpx;
+  top: 35rpx;
+  left: 35rpx;
+  /* border: 1px solid black; */
+}
+.card_card_name {
+  position: absolute;
+  left: 130rpx;
+  top: 35rpx;
+  /* border: 1px solid black; */
+  font-size: 28rpx;
+  color: #eaeaea;
+  height: 42rpx;
+  line-height: 42rpx;
+}
+.card_card_type {
+  position: absolute;
+  left: 130rpx;
+  top: 84rpx;
+  /* border: 1px solid black; */
+  font-size: 24rpx;
+  color: #cacaca;
+  height: 34rpx;
+  line-height: 34rpx;
+}
+.card_card_code {
+  position: absolute;
+  bottom: 28rpx;
+  right: 35rpx;
+  /* border: 1px solid black; */
+  color: #f4f4f4;
+  font-weight: bold;
+  letter-spacing: 2rpx;
+  font-size: 38rpx;
+}
+.tips {
+  color: #757575;
+  font-size: 20rpx;
+  text-align: center;
+  margin-bottom: 10rpx;
+}
