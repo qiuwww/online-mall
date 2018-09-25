@@ -38,7 +38,6 @@ insert  into `bbgshop_ad` (`id`,`ad_position_id`,`media_type`,`name`,`link`,`ima
 MySQL默认的存储引擎是MyISAM，其他常用的就是InnoDB了。
 
 #### AUTO_INCREMENT
-
 就是insert的时候，这个字段的值会自动加1，一般用来作为主键，很方便的
 
 #### key

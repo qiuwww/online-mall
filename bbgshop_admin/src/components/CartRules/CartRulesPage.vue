@@ -16,6 +16,9 @@
         <div class="filter-box">
           <el-form :inline="true" :model="filterForm" class="demo-form-inline">
             <el-form-item label="规则名称">
+              <!-- 关于父子组件通讯的原则，父组件通过prop传递数据给子组件，子组件触发事件给父组件； -->
+              <!-- 但父组件想在子组件上监听自己的click的话，需要加上native修饰符。 -->
+              <!-- native就是把组件变回原生DOM的一种方式，相当于给组件绑定原生事件。 -->
               <el-input v-model="filterForm.name" @keyup.13.native="onSubmitFilter()" placeholder="规则名称"></el-input>
             </el-form-item>
             <el-form-item>
@@ -98,11 +101,13 @@ export default {
           cancelButtonText: '取消',
           type: 'warning'
         }).then(() => {
+          // 请求反转状态的接口
           this.axios.post('cartRules/rulesisable',{
             id: row.id,
             data: this.row[index].is_abled ? 1 : 0
           }).then(res => {
-            console.log(res);
+            console.log('cartRules/rulesisable:', res);
+            // 也就是说，如果fail的话，只要状态码是0，还是算作success
             if (res.data.errno === 0) {
               for (var i = 0; i < this.row.length; i++) {
                 if (this.row[i].rules_suit == 0) {
@@ -116,6 +121,7 @@ export default {
                 }
               }
               // this.row = []
+              // 再次请求数据，刷新列表
               this.getList()
               this.$message({
                 type: 'success',
@@ -161,6 +167,7 @@ export default {
     },
     //编辑
     handleRowEdit(index,row) {
+      // 跳转页面
       this.$router.push({
         name: 'CartRulesAdd',
         query: {
@@ -168,6 +175,7 @@ export default {
         }
       })
     },
+
     onSubmitFilter(){
       this.getList()
     },

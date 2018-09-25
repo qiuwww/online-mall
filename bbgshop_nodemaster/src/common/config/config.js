@@ -14,6 +14,7 @@ module.exports = {
     appkey: '', // 对应快递鸟用户后台 API key
     request_url: 'http://api.kdniao.cc/Ebusiness/EbusinessOrderHandle.aspx'
   },
+  // 人机验证的申请账户
   vaptcha: {
     vid: '5b91e6cafc650e21701ec0f5',
     key: '2383e7da4c2048b8a39fd652802a07b7'
