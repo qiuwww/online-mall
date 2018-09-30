@@ -1,6 +1,7 @@
 <template>
 <div class="content-page">
   <div class="content-nav">
+    <!-- 这里可以封装为一个组件的，输入数组 -->
     <el-breadcrumb class="breadcrumb" separator="/">
       <el-breadcrumb-item :to="{ path: '/dashboard' }">首页</el-breadcrumb-item>
       <el-breadcrumb-item>订单中心</el-breadcrumb-item>
@@ -11,8 +12,8 @@
       <el-button type="primary" @click="goBackPage" size="small" icon="arrow-left">返回列表</el-button>
     </div>
   </div>
-  <div class="content_detail">
 
+  <div class="content_detail">
     <el-card class="box-card">
       <div slot="header">
         <span style="color:#333;font-size:16px;font-weight:bold">订单详情</span>
@@ -241,6 +242,7 @@ export default {
       this.dialogVisible = true
       this.dialogImageUrl = url
     },
+    // 这个应该封装为一个工具函数啊
     timestampToTime(timestamp) {
       var date = new Date(timestamp * 1); //时间戳为10位需*1000，时间戳为13位的话不需乘1000
       var Y = date.getFullYear() + '/';

@@ -8,8 +8,10 @@
 
 <script>
 export default {
+  // 指定 name 选项的另一个好处是便于调试。
   name: 'bbgshop-admin',
   created() {
+    // 删除preloader的内容
     document.body.removeChild(document.getElementById('Loading_amoution'))
   }
 }

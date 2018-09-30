@@ -25,6 +25,7 @@
         </el-form-item>
       </el-form>
     </div>
+    <!-- 一个联动的选择列表 -->
     <div class="filter-box" style="float:right;">
       <el-select @change="FirstClassifyChange" v-model="FirstClassifyId" @clear="FirstClassifyClear" clearable placeholder="请选择一级分类">
         <el-option v-for="item in FirstClassifyList" :key="item.id" :label="item.name" :value="item.id">
@@ -36,6 +37,7 @@
       </el-select>
     </div>
     <div class="form-table-box">
+      <!-- 这里添加的单元格双机事件 -->
       <el-table :data="tableData" @cell-dblclick='doubleclick' :default-sort="{prop: 'retail_price', order: 'descending'}" style="width: 100%" border stripe>
         <!-- <el-table-column prop="id" align="center" sortable label="ID" width="100">
         </el-table-column> -->
@@ -46,6 +48,7 @@
               <div class="table_box_name" v-if="!row[scope.$index].name_edit">
                 {{tableData[scope.$index].name}}
               </div>
+              <!-- 这里直接编辑名称 -->
               <el-input class="table_box_name_edit" v-if="row[scope.$index].name_edit"
                 type="textarea"
                 @blur="edit_blur"
@@ -56,11 +59,13 @@
             </div>
           </template>
         </el-table-column>
+
         <el-table-column align="center" label='添加时间' width="170">
           <template slot-scope="scope">
             {{row[scope.$index].add_localtime}}
           </template>
         </el-table-column>
+        <!-- 这里为什么会触发切换？ -->
         <el-table-column align="center" label="成本价" width="100">
           <template slot-scope="scope">
             <div class="" v-if="!row[scope.$index].cost_price_edit">
@@ -72,6 +77,7 @@
             placeholder="请输入成本价"></el-input>
           </template>
         </el-table-column>
+
         <el-table-column align="center" label="售价" width="100">
           <template slot-scope="scope">
             <div class="" v-if="!row[scope.$index].retail_price_edit">
@@ -92,6 +98,7 @@
             placeholder="请输入成本价"></el-input>
           </template>
         </el-table-column>
+
         <el-table-column prop="" label="权重" align="center" width="100">
           <template slot-scope="scope">
             <div class="" v-if="!row[scope.$index].short_order_edit">
@@ -102,6 +109,7 @@
             placeholder="请输入权重"></el-input>
           </template>
         </el-table-column>
+
         <el-table-column align="center" label="运费" width="100">
           <template slot-scope="scope">
             <div class="" v-if="!row[scope.$index].freight_edit">
@@ -114,9 +122,9 @@
         </el-table-column>
         <el-table-column prop="is_new" label="身份" align="center" width="80">
           <template slot-scope="scope">
-                          <el-switch v-model="row[scope.$index].Identity" @change="changeIdentity(scope.$index, scope.row)">
-                          </el-switch>
-                        </template>
+            <el-switch v-model="row[scope.$index].Identity" @change="changeIdentity(scope.$index, scope.row)">
+            </el-switch>
+          </template>
         </el-table-column>
         <el-table-column prop="is_new" label="新品" align="center" width="80">
           <template slot-scope="scope">
@@ -277,6 +285,7 @@ export default {
      });
     },
     // 以下为单元格双击事件、、、、、、、、、、、、、、、、、、
+    // 失去焦点的时候需要触发的事件
     edit_blur(){
       // console.log("123");
       let changed_info = this.tableData[this.click_row_index]
@@ -306,6 +315,7 @@ export default {
         });
 
     },
+    // 单元格双击事件
     doubleclick(row, column, cell){
       console.log(row, column);
       for (var i = 0; i < this.row.length; i++) {

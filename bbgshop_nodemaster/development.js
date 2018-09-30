@@ -1,3 +1,4 @@
+// 开发环境启动文件
 const Application = require('thinkjs');
 // const babel = require('think-babel');
 const watcher = require('think-watcher');

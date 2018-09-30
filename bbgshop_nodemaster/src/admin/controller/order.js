@@ -165,8 +165,8 @@ module.exports = class extends Base {
       data.data = newList;
       return this.success(data);
     }
-
   }
+  // 获取所有的订单的接口
   async allAction() {
     const page = this.get('page') || 1;
     const size = this.get('size') || 10;

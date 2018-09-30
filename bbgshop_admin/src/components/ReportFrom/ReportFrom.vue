@@ -1,13 +1,16 @@
 <template>
 <div class="content-page">
   <div class="content-nav">
+    <!-- 这个需要每次进去自己写死 -->
     <el-breadcrumb class="breadcrumb" separator="/">
       <el-breadcrumb-item :to="{ path: '/dashboard' }">数据总览</el-breadcrumb-item>
     </el-breadcrumb>
+
     <div class="operation-nav">
         <el-button type="primary" size="small" @click="Refresh">刷新</el-button>
     </div>
   </div>
+  <!-- chart组 -->
   <div class="content-main">
     <el-row class="content_elrow">
       <el-col :span="24" class="content_elcol">
@@ -72,6 +75,7 @@ export default {
     // this.drawAll()
   },
   methods:{
+    // 刷新页面
     mountedAction() {
       // 基于准备好的dom，初始化echarts实例
       // this.dayeChart = echarts.init(document.getElementById('dayChart'))
@@ -98,6 +102,7 @@ export default {
         this.reformpastDayData()
       })
     },
+    // 数据解析
     reformpastDayData() {
       // console.log(this.pastDayData);
       this.allData = []
@@ -134,6 +139,7 @@ export default {
       && this.weekDayData.Thursday && this.weekDayData.Friday && this.weekDayData.Saturday
       && this.weekDayData.Sunday) {
         for (var i = 0; i < this.weekDayData.Monday.length; i++) {
+          // 这里多次使用的取值，需要保存为一个变量
           if (this.weekDayData.Monday[i].order_status === 0) {
             Monday_0.push(this.weekDayData.Monday[i])
           }else if (this.weekDayData.Monday[i].order_status === 201) {
@@ -152,6 +158,7 @@ export default {
         this.weekData[3][0] = Monday_3.length
         this.weekData[4][0] = Monday_4.length
         this.weekData[5][0] = this.weekDayData.Monday.length
+
         let Tuesday_0 = [],Tuesday_1 = [],Tuesday_2 = [],Tuesday_3 = [],Tuesday_4 = []
         for (var j = 0; j < this.weekDayData.Tuesday.length; j++) {
           if (this.weekDayData.Tuesday[j].order_status === 0) {

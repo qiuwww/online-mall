@@ -39,6 +39,13 @@
                 </div>
               </template>
             </el-table-column>
+            <el-table-column label="规则描述">
+              <template slot-scope="scope">
+                <div class="goodsdeschh">
+                  {{tableData[scope.$index].rules_desc }}
+                </div>
+              </template>
+            </el-table-column>
             <el-table-column label="规则详情" align="center">
               <template slot-scope="scope">
                 {{row[scope.$index].str}}

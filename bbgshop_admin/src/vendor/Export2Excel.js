@@ -1,4 +1,7 @@
 /* eslint-disable */
+
+// 导出excel的操作
+
 require('script-loader!file-saver');
 require('script-loader!@/vendor/Blob');
 require('script-loader!xlsx/dist/xlsx.core.min');
@@ -136,6 +139,6 @@ export function export_json_to_excel(th, jsonData, defaultTitle) {
     wb.Sheets[ws_name] = ws;
 
     var wbout = XLSX.write(wb, {bookType: 'xlsx', bookSST: false, type: 'binary'});
-    var title = defaultTitle || '�б�'
+    var title = defaultTitle || '�б�'
     saveAs(new Blob([s2ab(wbout)], {type: "application/octet-stream"}), title + ".xlsx")
 }

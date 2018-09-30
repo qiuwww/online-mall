@@ -1,10 +1,12 @@
 <template>
     <div class="content-page">
         <div class="content-nav">
+
             <el-breadcrumb class="breadcrumb" separator="/">
                 <el-breadcrumb-item :to="{ path: '/dashboard' }">首页</el-breadcrumb-item>
                 <el-breadcrumb-item>订单中心</el-breadcrumb-item>
             </el-breadcrumb>
+            <!-- 操作按钮组 -->
             <div class="operation-nav">
                 <el-button type="warning" size="small" @click="ExportExecle">订单导出</el-button>
                 <el-button type="primary" size="small" @click="Refresh">刷新</el-button>
@@ -46,7 +48,9 @@
                   </el-form-item>
               </el-form>
             </div>
+
             <div class="content_filler_right" >
+              <!-- select -->
               <el-select style="width:150px;margin-right:10px" v-model="ordertype" clearable placeholder="请选择订单状态" @change="changeorder_type">
                 <el-option
                   v-for="item in typelist"
@@ -55,6 +59,7 @@
                   :value="item.code">
                 </el-option>
               </el-select>
+
               <el-select style="width:150px;margin-right:10px" v-model="orderstate" clearable placeholder="请选择订单类型" @change="changeorder_state">
                 <el-option
                   v-for="item in statelist"
@@ -74,6 +79,7 @@
               <el-button type="primary" @click="ClierFilter">清空查询</el-button>
             </div>
           </div>
+          <!-- table -->
           <div class="form-table-box">
                 <el-table :data="tableData" style="width: 100%" border stripe>
                     <el-table-column prop="order_sn"  width="200" align="center" label="订单号" >
@@ -306,6 +312,7 @@
             </div>
         </div>
         <!-- 修改订单价格弹层 -->
+        <!-- vant组件库中的组件 -->
         <van-popup v-model="chage_price_popup">
           <div class="ChagePrice_area">
             <div class="ChagePrice_area_title">
@@ -628,6 +635,7 @@
             <!-- </div> -->
           </div>
         </van-popup>
+
         <!-- //导出表格的弹层 -->
         <van-popup v-model="export_execle_popup">
           <div class="export_area">
@@ -798,9 +806,12 @@
 </template>
 
 <script>
+// 文字提示tips
 import { Toast } from 'vant'
+// 文件保存，但是没有用到
 import FileSaver from 'file-saver'
 import XLSX from 'xlsx'
+
 // import { Loading } from 'vant';
   export default {
     data() {
@@ -973,6 +984,7 @@ import XLSX from 'xlsx'
          type: 'warning'
        }).then(() => {
          this.axios.post('order/EXPORT_TO_EXLECE',{
+           // 导出的筛选条件
            supplier: this.export_from.supplier_id,
            limit_time_start: this.Export_limit_day_unix[0],
            limit_time_end: this.Export_limit_day_unix[1],
@@ -981,6 +993,7 @@ import XLSX from 'xlsx'
            let info = res.data.data
            if (res.data.errno == 0) {
              this.export_abled_button = true
+             // 提示弹框
              this.loading_notify = this.$notify({
                title: '成功',
                message: '表格数据重组成功 ！ 正在导出 ！',
@@ -991,6 +1004,7 @@ import XLSX from 'xlsx'
                function formatJson(filterVal, jsonData) {
            　　　　return jsonData.map(v => filterVal.map(j => v[j]))
                }
+               // webpack 在编译时，会静态地解析代码中的 require.ensure()，同时将模块添加到一个分开的 chunk 当中。这个新的 chunk 会被 webpack 通过 jsonp 来按需加载。
                require.ensure([], () => { //require的路径因个人项目结构不同可能需要单独调整，请自行修改路径
      　　　　　　const { export_json_to_excel } = require('../../vendor/Export2Excel');
      　　　　　　const tHeader = ['创建时间','订单编号','订单状态','运单编号','物流公司','商品名称','供货商','数量','收货人','收货地址','用户地区','手机号',
@@ -1027,9 +1041,12 @@ import XLSX from 'xlsx'
         this.ExportExecle()
       },
       //以下为导出execle表格、、、、、、、、、、、、、、、、、、
+      // 获取数据
       ExportExecle() {
+        // 并打开弹框
         this.export_execle_popup = true
         this.axios.get('order/getallordergoods',{
+          // 查询条件可以改变， 根据后端数据分页
           params: {
             page: this.export_page,
             supplier: this.export_from.supplier_id,
@@ -1038,6 +1055,7 @@ import XLSX from 'xlsx'
           }
         }).then(res => {
           console.log(res);
+          // 保存总的数据
           this.export_order_goods = res.data.data.data
           // for (var i = 0; i < this.export_order_goods.length; i++) {
           //   this.export_order_goods[i].add_localtime = this.timestampToTime(this.export_order_goods.order_info[i].add_time)
@@ -1195,6 +1213,7 @@ import XLSX from 'xlsx'
           })
       },
       // 以下为筛选///////////////////////////////////////////////////////////
+      // 清空数据的时候的查询
       ClierFilter() {
         this.filterForm.order_sn = ''
         this.filterForm.consignee = ''
@@ -1598,6 +1617,7 @@ import XLSX from 'xlsx'
         this.ordertype = ''
         this.getList()
       },
+      // select改变的时候请求数据
       changeorder_type(e){
         console.log(e);
         this.ordertype = e
@@ -1614,6 +1634,7 @@ import XLSX from 'xlsx'
         console.log(row);
         this.$router.push({ name: 'order_detail', query: { id: row.id } })
       },
+      // 查询按钮
       onSubmitFilter() {
         this.page = 1
         console.log(this.limit_day);
@@ -1626,6 +1647,7 @@ import XLSX from 'xlsx'
         console.log(this.limit_day_unix);
         this.getList()
       },
+      // 统一的数据查询操作
       getList() {
         this.axios.get('order/all', {
           params: {
@@ -1700,8 +1722,9 @@ import XLSX from 'xlsx'
     },
     mounted() {
       let code = this.$route.query.state || '';
+      // 这里会请求两次getList
       this.changeorder_type(code)
-      this.getList();
+      // this.getList();
       this.getsupplierlist()
       this.looprefresh()
 

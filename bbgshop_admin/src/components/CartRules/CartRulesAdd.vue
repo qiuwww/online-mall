@@ -17,6 +17,10 @@
             <el-input style="width:317px;" v-model="Rules.rules_name" placeholder="输入规则名称" >
             </el-input>
           </el-form-item>
+          <el-form-item label="规则描述" >
+            <el-input style="width:317px;" v-model="Rules.rules_desc" placeholder="输入规则描述" >
+            </el-input>
+          </el-form-item>
           <el-form-item label="规则适用对象" >
             <el-radio-group v-model="Rules.suit_model">
               <el-radio :label="0">全店商品</el-radio>
@@ -97,6 +101,7 @@ export default {
       reload_time: 0,//单选框改变次数
       Rules: {
         rules_name: '',
+        rules_desc: '', // 规则描述
         type_model: 0,//规则类型 满减或折扣或减运费
         suit_model: 0,//规则适用对象 全店或部分商品
         limit_model: 0,//适用规则的最低限制

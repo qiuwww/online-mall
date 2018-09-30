@@ -9,6 +9,7 @@ module.exports = class extends Base {
     const data = await this.model('cart_rules').where({rules_name: ['like', `%${name}%`]}).order(['id DESC']).page(page, size).countSelect();
     return this.success(data);
   }
+  // 新增和更新
   async updaterulesAction() {
     const id = this.post('id');
     const rules = this.post('rules');
@@ -16,6 +17,7 @@ module.exports = class extends Base {
     if (parseInt(id) == 0) {
       await this.model('cart_rules').add({
         rules_name: rules.rules_name,
+        rules_desc: rules.rules_desc,
         is_abled: 0,
         rules_limit_price: rules.limit_price,
         rules_type: rules.type_model,
@@ -30,6 +32,7 @@ module.exports = class extends Base {
     } else {
       await this.model('cart_rules').where({id: id}).update({
         rules_name: rules.rules_name,
+        rules_desc: rules.rules_desc,
         rules_limit_price: rules.limit_price,
         rules_type: rules.type_model,
         rules_discount_price: rules.discount_price,
@@ -57,7 +60,7 @@ module.exports = class extends Base {
     // 在cart_rules表中查询 rules_suit 字段等于 0 的所有行
     const list = await this.model('cart_rules').where({rules_suit: 0}).select();
     // 根据是否启用来进行判断
-    // 开启或者关闭
+    // 开启或者关闭， 这里是有个互斥的操作
     if (parseInt(info) === 1) {
       console.log('*******************************=1');
       // 这里使用each，或者some更符合
@@ -67,7 +70,7 @@ module.exports = class extends Base {
         if (list[i].id == id) {
           console.log(id);
           // modal对应到表
-          // 找到这个行，更新is_abled字段的状态为1
+          // 找到这个行，更新is_abled字段的状态为1, 并把其他的置为0
           await this.model('cart_rules').where({id: list[i].id}).update({is_abled: 1});
         } else {
           await this.model('cart_rules').where({id: list[i].id}).update({is_abled: 0});

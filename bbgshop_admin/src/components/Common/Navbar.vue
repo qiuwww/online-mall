@@ -32,18 +32,18 @@
         </el-form>
         <transition name="el-fade-in-linear">
 
-        <el-form v-if="is_true" style="border-top:1px solid #eee" :inline="true" :model="filterFormAfter" class="demo-form-inline">
-            <el-form-item label="新密码" style="margin-top:22px">
-                <el-input style="width:250px" v-model="filterFormAfter.after_pwd" placeholder="请输入新密码"></el-input>
-            </el-form-item>
-            <el-form-item label="新特征码">
-                <el-input style="width:250px" v-model="filterFormAfter.after_code" placeholder="请输入新特征码"></el-input>
-            </el-form-item>
-            <div class="checkbtn" v-if="is_true">
-              <el-button style="margin-right:6px" size='small' type="primary" @click="surereset">确定</el-button>
-            </div>
-        </el-form>
-      </transition>
+          <el-form v-if="is_true" style="border-top:1px solid #eee" :inline="true" :model="filterFormAfter" class="demo-form-inline">
+              <el-form-item label="新密码" style="margin-top:22px">
+                  <el-input style="width:250px" v-model="filterFormAfter.after_pwd" placeholder="请输入新密码"></el-input>
+              </el-form-item>
+              <el-form-item label="新特征码">
+                  <el-input style="width:250px" v-model="filterFormAfter.after_code" placeholder="请输入新特征码"></el-input>
+              </el-form-item>
+              <div class="checkbtn" v-if="is_true">
+                <el-button style="margin-right:6px" size='small' type="primary" @click="surereset">确定</el-button>
+              </div>
+          </el-form>
+        </transition>
 
       </div>
     </div>
@@ -128,8 +128,11 @@ export default {
         cancelButtonText: '取消',
         type: 'warning'
       }).then(() => {
+        // 卧槽，才发现有这个接口，应该用remove吧
+        // 清除当前域名下的所有localstorage数据
         localStorage.clear();
         sessionStorage.clear();
+        // 退出登录到login页面
         this.$router.replace({
           name: 'login'
         });

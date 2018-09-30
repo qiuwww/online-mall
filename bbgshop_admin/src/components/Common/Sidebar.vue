@@ -5,6 +5,7 @@
         </div>
         <el-menu class="sidebar" :unique-opened="true" :default-active="currentPagePath" @open="handleOpen"
                  :router="true" theme="dark" @close="handleClose">
+            <!-- 草，这里是可以直接跳转的啊，。。。。。 -->
             <el-menu-item index="/dashboard">
                 <i class="fa fa-map-signs"></i>
                 <span>主页</span>

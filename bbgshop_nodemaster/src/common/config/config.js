@@ -1,4 +1,5 @@
 // default config
+// 配置文件
 module.exports = {
   default_module: 'api',
   weixin: {

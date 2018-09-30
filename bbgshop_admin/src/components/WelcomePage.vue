@@ -157,14 +157,19 @@ export default {
     // to_already_order() {
     //   this.$router.push({name: 'order'})
     // },
+    // 挂在的时候进行处理图表绘制
     mountedAction() {
       // 基于准备好的dom，初始化echarts实例
+      // ref引用就可以吧
       this.dayepriceChart = echarts.init(document.getElementById('daypriceChart'))
       this.dayeChart = echarts.init(document.getElementById('dayChart'))
+
       this.dayepriceChart.showLoading();
       this.dayeChart.showLoading();
+
       this.getInfo();
     },
+    // 获取图表信息
     getInfo(){
       this.axios.post('echarts/getechartsprice').then((res) => {
         console.log(res);
@@ -175,6 +180,7 @@ export default {
         // this.reformoneDayData()
       })
     },
+    // 定时刷新
     looprefresh() {
       this.timeloop = setInterval(() => {
         this.time = this.time - 1000
@@ -186,6 +192,7 @@ export default {
         }
       }, 1000);
     },
+    // 毫秒数转为 00:00 格式
     timestampToDate(timestamp){
       var M = parseInt((timestamp % 3600000) / 60000);
       var S = ((timestamp % 60000) / 1000).toFixed(0);
@@ -193,6 +200,7 @@ export default {
       var localS = S < 10 ? '0' + S : S;
       return localM + ":" + localS
     },
+    // 绘制echart表
     today_price_refresh() {
       let payprice = 0
       let pendpayprice = 0
@@ -239,8 +247,6 @@ export default {
       this.yesterday_order_already = yesterday_already.length
       this.yesterday_order_refund = yesterday_order_refund.length
       this.today_price_refresh()
-
-
     },
     ratedata() {
       let today_order_already = []
@@ -369,8 +375,6 @@ export default {
           // window.open('https://www.baidu.com/s?wd=' + encodeURIComponent(params.name));
       });
       this.reformoneDayData()
-
-
     },
     drawDay() {
       // 绘制图表

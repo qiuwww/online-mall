@@ -1,5 +1,5 @@
 const mysql = require('think-model-mysql');
-
+// 数据库配置
 module.exports = {
   handle: mysql,
   database: 'dwshop', //
