@@ -1,25 +1,24 @@
-﻿### BbgShop商城（微信小程序端）
+﻿### BbgShop 商城（微信小程序端）
 
 本项目需要配合微信小程序商城服务端使用，GitHub: [https://github.com/yuanbon/bbgshop_nodemaster](https://github.com/yuanbon/bbgshop_nodemaster)，和后台
 GitHub: [https://github.com/yuanbon/bbgshop_admin](https://github.com/yuanbon/bbgshop_admin)，
 
-
 ### 功能列表
-+ 首页
-+ 分类首页、分类商品、新品首发、人气推荐商品页面
-+ 商品详情页面，包含加入购物车、收藏商品、商品评论功能
-+ 搜索功能
-+ 砍价功能
-+ 拼团功能
-+ 优惠券功能
-+ 抽奖功能
-+ 分销功能
-+ 完整的购物流程，商品的加入、编辑、删除、批量选择，收货地址的选择，下单支付，退款
-+ 会员中心（订单、收藏、足迹、收货地址、意见反馈）
-....
+
+- 首页
+- 分类首页、分类商品、新品首发、人气推荐商品页面
+- 商品详情页面，包含加入购物车、收藏商品、商品评论功能
+- 搜索功能
+- 砍价功能
+- 拼团功能
+- 优惠券功能
+- 抽奖功能
+- 分销功能
+- 完整的购物流程，商品的加入、编辑、删除、批量选择，收货地址的选择，下单支付，退款
+- 会员中心（订单、收藏、足迹、收货地址、意见反馈）
+  ....
 
 ### 一些截图 （哼，其实是我懒得分开来就放一起看了）
-
 
 ![enter image description here](http://resource.bbgshop.com/github/7N%29%60SSP~FKNJ7%25H%28LR%5BU%60%25J.png)
 
@@ -87,10 +86,6 @@ GitHub: [https://github.com/yuanbon/bbgshop_admin](https://github.com/yuanbon/bb
 
 ![enter image description here](http://resource.bbgshop.com/github/%291%25A%7D%29AV21V1IR439Q9BJKS.png)
 
-
-
-
-
 ### 打赏
 
 > 哈哈哈 如果帮到了你 那真的是太好了
@@ -99,9 +94,17 @@ GitHub: [https://github.com/yuanbon/bbgshop_admin](https://github.com/yuanbon/bb
 
 ![enter image description here](http://resource.bbgshop.com/github/1531550384970.jpg)
 
-**谢谢你们的支持，有问题请添加微信 m13101221 或 添加qq群 823666423，刚创的群，欢迎捧场**
+**谢谢你们的支持，有问题请添加微信 m13101221 或 添加 qq 群 823666423，刚创的群，欢迎捧场**
 
 > 谢谢你们啦
 
 ### 最后
+
 谢谢大家支持
+
+## 小程序启动
+
+1. 微信开发者工具，登陆 -> 小程序 -> 添加本地项目;
+2. 无 appid，需要重新注册；
+3. 使用已 appid 也；
+4. 接口数据请求，需要官网配置（对于本地请求，需要配置不校验地址，设置-> 项目设置 -> 不校验合法域名....）。
