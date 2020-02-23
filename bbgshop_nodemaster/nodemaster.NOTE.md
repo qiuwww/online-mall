@@ -179,3 +179,11 @@ https://thinkjs.org/zh-cn/doc/1.2/start.html
 ├── js ---- js 文件
 ├── module ---- 第三方的一些组件
 └── swf ---- flash 文件
+
+## thinkjs 的后台处理逻辑
+
+### 接口请求
+
+没有明确的接口路由文件，请求依次查找文件目录。如
+
+`http://127.0.0.1:8360/admin/guide/setnoviceguide` => admin 目录 => controller/guide 控制器 => setnoviceguide 方法 => 数据库表(guide + model) => 查询数据 data，然后返回。

@@ -1,5 +1,6 @@
 const Base = require('./base.js');
 
+// 新手指南的查询与保存
 module.exports = class extends Base {
   async findnoviceguideinfoAction() {
     const data = await this.model('guide').where({type:1}).find()
