@@ -101,10 +101,3 @@ GitHub: [https://github.com/yuanbon/bbgshop_admin](https://github.com/yuanbon/bb
 ### 最后
 
 谢谢大家支持
-
-## 小程序启动
-
-1. 微信开发者工具，登陆 -> 小程序 -> 添加本地项目;
-2. 无 appid，需要重新注册；
-3. 使用已 appid 也；
-4. 接口数据请求，需要官网配置（对于本地请求，需要配置不校验地址，设置-> 项目设置 -> 不校验合法域名....）。

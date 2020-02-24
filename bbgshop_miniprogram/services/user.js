@@ -39,6 +39,7 @@ function loginByWeixin() {
 /**
  * 判断用户是否登录
  */
+// app.js -> checkLogin，这里检测不通过就是 globalData 信息不改变，就是游客
 function checkLogin() {
   return new Promise(function (resolve, reject, resule) {
     if (wx.getStorageSync('userInfo') && wx.getStorageSync('token')) {

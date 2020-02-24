@@ -47,6 +47,7 @@ Page({
   onReady: function () {
 
   },
+  // 授权信息
   onShow: function () {
 
     let userInfo = wx.getStorageSync('userInfo');

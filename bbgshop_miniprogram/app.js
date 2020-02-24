@@ -2,6 +2,7 @@ var util = require('./utils/util.js');
 var api = require('./config/api.js');
 var user = require('./services/user.js');
 
+// 程序入口，第一次加载的时候调用
 App({
   onLaunch: function () {
     //获取用户的登录信息
