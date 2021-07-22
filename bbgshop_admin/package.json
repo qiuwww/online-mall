@@ -22,7 +22,7 @@
     "vue-quill-editor": "^3.0.5",
     "vue-router": "^2.5.3",
     "vuex": "^2.3.1",
-    "xlsx": "^0.13.3"
+    "xlsx": "^0.17.0"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",
