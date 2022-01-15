@@ -51,7 +51,7 @@
     "rimraf": "^2.6.0",
     "script-loader": "^0.7.2",
     "semver": "^5.3.0",
-    "shelljs": "^0.7.6",
+    "shelljs": "^0.8.5",
     "uglifyjs-webpack-plugin": "^1.2.7",
     "url-loader": "^0.5.8",
     "vue-easytable": "^1.7.0",
